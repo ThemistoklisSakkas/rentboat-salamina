@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #FAFAF8;
+    --foreground: #1A1A1A;
+    --border: #E5E5E0;
+    --ring: #F0A500;
+  }
+
+  html {
+    /* Native smooth scrolling removed — Lenis handles inertia scrolling. */
+    @apply font-sans;
+  }
+
+  /* Luxury serif for large headings (EB Garamond, supports Greek). */
+  h1,
+  h2 {
+    font-family: var(--font-display), Georgia, serif;
+    letter-spacing: 0.015em;
+  }
+
+  body {
+    background-color: #FAFAF8;
+    color: #1A1A1A;
+    @apply antialiased;
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+
+  ::selection {
+    background: #F0A500;
+    color: #1A1A1A;
+  }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #F5F5F0; }
+  ::-webkit-scrollbar-thumb { background: #F0A500; border-radius: 3px; }
+}
