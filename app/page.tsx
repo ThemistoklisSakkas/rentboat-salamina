@@ -478,8 +478,8 @@ export default function HomePage() {
                 onCanPlay={() => setMobileReady(true)}
                 {...({ "webkit-playsinline": "true" } as Record<string, string>)}
               >
-                {/* Local pre-compressed, fast-start MP4. */}
-                <source src="/boat-video-optimized.mp4" type="video/mp4" />
+                {/* Local 480p mobile-optimized MP4 (~1.4 MB) for fast start. */}
+                <source src="/boat-video-mobile.mp4" type="video/mp4" />
               </video>
             </>
           )}
