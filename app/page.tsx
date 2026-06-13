@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Anchor, Star, Clock, Users, ArrowRight, Phone, ChevronLeft, ChevronRight, Ticket, Play, Volume2, VolumeX } from "lucide-react";
+import { Anchor, Star, Clock, Users, ArrowRight, Phone, ChevronLeft, ChevronRight, Ticket, Play } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import MagneticButton from "@/components/MagneticButton";
 
@@ -229,7 +229,6 @@ export default function HomePage() {
   const [isMobile, setIsMobile] = useState(false);
   const [heroReady, setHeroReady] = useState(false); // detection has run (client only)
   const [mobilePlaying, setMobilePlaying] = useState(false);
-  const [mobileMuted, setMobileMuted] = useState(false);
   const mobileVideoRef = useRef<HTMLVideoElement>(null);
 
   const statLabels = lang === "gr"
@@ -363,26 +362,14 @@ export default function HomePage() {
     }, 8000);
   };
 
-  // Mobile: tap the play button to start the video (with sound).
+  // Mobile: tap the play button to start the looping video — always muted,
+  // which lets the play() call succeed reliably on iOS / Android.
   const handleMobilePlay = () => {
     const v = mobileVideoRef.current;
     if (!v) return;
-    v.muted = false;
-    setMobileMuted(false);
-    v.play().catch(() => {
-      // Some browsers block sound on the first gesture — retry muted.
-      v.muted = true;
-      setMobileMuted(true);
-      v.play().catch(() => {});
-    });
+    v.muted = true;
+    v.play().catch(() => {});
     setMobilePlaying(true);
-  };
-
-  const toggleMobileMute = () => {
-    const v = mobileVideoRef.current;
-    if (!v) return;
-    v.muted = !v.muted;
-    setMobileMuted(v.muted);
   };
 
   return (
@@ -477,10 +464,12 @@ export default function HomePage() {
                 className={`w-full h-full object-cover transition-opacity duration-700 ${
                   mobilePlaying ? "opacity-100" : "opacity-0"
                 }`}
+                muted
                 loop
                 playsInline
                 preload="none"
                 poster={HERO_POSTER}
+                {...({ "webkit-playsinline": "true" } as any)}
               >
                 <source src="/boat-video-optimized.mp4" type="video/mp4" />
               </video>
@@ -505,17 +494,6 @@ export default function HomePage() {
               <Play className="w-7 h-7 text-white fill-white translate-x-0.5" />
             </button>
           </div>
-        )}
-
-        {/* ─── MOBILE: mute / unmute (while playing) ─── */}
-        {isMobile && mobilePlaying && (
-          <button
-            onClick={toggleMobileMute}
-            aria-label={mobileMuted ? "Unmute video" : "Mute video"}
-            className="absolute bottom-24 right-5 z-30 w-11 h-11 rounded-full bg-black/40 backdrop-blur-sm border border-white/30 flex items-center justify-center text-white active:scale-95 transition-transform"
-          >
-            {mobileMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
-          </button>
         )}
 
         <div ref={heroTextRef} className="relative z-10 text-center px-6 max-w-4xl mx-auto">
