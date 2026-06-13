@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Anchor, Star, Clock, Users, ArrowRight, Phone, ChevronLeft, ChevronRight, Ticket } from "lucide-react";
+import { Anchor, Star, Clock, Users, ArrowRight, Phone, ChevronLeft, ChevronRight, Ticket, Play, Volume2, VolumeX } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import MagneticButton from "@/components/MagneticButton";
 
@@ -25,6 +25,10 @@ const allBoats = [
 ];
 
 const featureIcons = [Anchor, Star, Users, Clock];
+
+// Hero poster shown on mobile before the visitor taps to play.
+const HERO_POSTER =
+  "https://rentboatsalamina.gr/wp-content/uploads/2025/07/DSC_3560-740x482.jpg";
 
 // Real destination photos from rentboatsalamina.gr.
 // Order MUST match tr.home.destinations in lib/translations.ts:
@@ -221,6 +225,13 @@ export default function HomePage() {
   const [activeVideo, setActiveVideo] = useState(0);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
+  // Mobile "tap to play" hero state
+  const [isMobile, setIsMobile] = useState(false);
+  const [heroReady, setHeroReady] = useState(false); // detection has run (client only)
+  const [mobilePlaying, setMobilePlaying] = useState(false);
+  const [mobileMuted, setMobileMuted] = useState(false);
+  const mobileVideoRef = useRef<HTMLVideoElement>(null);
+
   const statLabels = lang === "gr"
     ? ["Ευχαριστημένοι Πελάτες", "Χρόνια Εμπειρίας", "Σκάφη"]
     : ["Happy Customers", "Years of Experience", "Boats"];
@@ -331,12 +342,47 @@ export default function HomePage() {
     };
   }, []);
 
+  // Mobile detection — viewport width OR a touch-device user agent.
+  useEffect(() => {
+    const check = () =>
+      setIsMobile(
+        window.innerWidth < 768 ||
+          /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+      );
+    check();
+    setHeroReady(true);
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
   const handleDotClick = (i: number) => {
     setActiveVideo(i);
     if (intervalRef.current) clearInterval(intervalRef.current);
     intervalRef.current = setInterval(() => {
       setActiveVideo(v => (v + 1) % 2);
     }, 8000);
+  };
+
+  // Mobile: tap the play button to start the video (with sound).
+  const handleMobilePlay = () => {
+    const v = mobileVideoRef.current;
+    if (!v) return;
+    v.muted = false;
+    setMobileMuted(false);
+    v.play().catch(() => {
+      // Some browsers block sound on the first gesture — retry muted.
+      v.muted = true;
+      setMobileMuted(true);
+      v.play().catch(() => {});
+    });
+    setMobilePlaying(true);
+  };
+
+  const toggleMobileMute = () => {
+    const v = mobileVideoRef.current;
+    if (!v) return;
+    v.muted = !v.muted;
+    setMobileMuted(v.muted);
   };
 
   return (
@@ -349,64 +395,128 @@ export default function HomePage() {
         <div ref={bgRef} className="absolute inset-0 origin-center overflow-hidden">
           <ParticleOcean />
 
-          <div className="absolute inset-0 md:hidden">
-            <Image
-              src="https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?w=1200&h=900&fit=crop&auto=format"
-              alt="Boat at sea — Salamina"
-              fill
-              priority
-              className="object-cover"
-              sizes="100vw"
-            />
-          </div>
+          {/* ─── DESKTOP: autoplay crossfading videos ─── */}
+          {heroReady && !isMobile && (
+            <>
+              {/* Video 1 — local optimized boat video (web-optimized / fast-start) */}
+              <motion.div
+                className="absolute inset-0"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: activeVideo === 0 && vid1Ready ? 1 : 0 }}
+                transition={{ duration: 1.2, ease: "easeInOut" }}
+              >
+                <video
+                  className="w-full h-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="auto"
+                  poster={HERO_POSTER}
+                  onCanPlay={() => setVid1Ready(true)}
+                  onLoadedData={() => setVid1Ready(true)}
+                >
+                  <source src="/boat-video-optimized.mp4" type="video/mp4" />
+                </video>
+              </motion.div>
 
-          {/* Video 1 — Local optimized boat video (web-optimized / fast-start MP4) */}
-          <motion.div
-            className="absolute inset-0 hidden md:block"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: activeVideo === 0 && vid1Ready ? 1 : 0 }}
-            transition={{ duration: 1.2, ease: "easeInOut" }}
-          >
-            <video
-              className="w-full h-full object-cover"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="auto"
-              poster="https://rentboatsalamina.gr/wp-content/uploads/2025/07/DSC_3560-740x482.jpg"
-              onCanPlay={() => setVid1Ready(true)}
-              onLoadedData={() => setVid1Ready(true)}
-            >
-              <source src="/boat-video-optimized.mp4" type="video/mp4" />
-            </video>
-          </motion.div>
+              {/* Video 2 — local boat video */}
+              <motion.div
+                className="absolute inset-0"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: activeVideo === 1 && vid2Ready ? 1 : 0 }}
+                transition={{ duration: 1.2, ease: "easeInOut" }}
+              >
+                <video
+                  className="w-full h-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  poster="https://rentboatsalamina.gr/wp-content/uploads/2024/05/IMG_2991-740x482.jpg"
+                  onCanPlay={() => setVid2Ready(true)}
+                  onLoadedData={() => setVid2Ready(true)}
+                >
+                  <source src="/boat-video-2.mp4" type="video/mp4" />
+                </video>
+              </motion.div>
+            </>
+          )}
 
-          {/* Video 2 — Local boat video */}
-          <motion.div
-            className="absolute inset-0 hidden md:block"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: activeVideo === 1 && vid2Ready ? 1 : 0 }}
-            transition={{ duration: 1.2, ease: "easeInOut" }}
-          >
-            <video
-              className="w-full h-full object-cover"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              poster="https://rentboatsalamina.gr/wp-content/uploads/2024/05/IMG_2991-740x482.jpg"
-              onCanPlay={() => setVid2Ready(true)}
-              onLoadedData={() => setVid2Ready(true)}
-            >
-              <source src="/boat-video-2.mp4" type="video/mp4" />
-            </video>
-          </motion.div>
+          {/* ─── MOBILE: tap-to-play ─── */}
+          {heroReady && isMobile && (
+            <>
+              {/* Poster with a slow Ken Burns drift until playback starts */}
+              {!mobilePlaying && (
+                <motion.div
+                  className="absolute inset-0"
+                  initial={{ scale: 1 }}
+                  animate={{ scale: 1.12 }}
+                  transition={{
+                    duration: 16,
+                    ease: "easeInOut",
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                  }}
+                >
+                  <Image
+                    src={HERO_POSTER}
+                    alt="Boat at sea — Salamina"
+                    fill
+                    priority
+                    className="object-cover"
+                    sizes="100vw"
+                  />
+                </motion.div>
+              )}
+
+              {/* The video itself — only fetched once the visitor taps play */}
+              <video
+                ref={mobileVideoRef}
+                className={`w-full h-full object-cover transition-opacity duration-700 ${
+                  mobilePlaying ? "opacity-100" : "opacity-0"
+                }`}
+                loop
+                playsInline
+                preload="none"
+                poster={HERO_POSTER}
+              >
+                <source src="/boat-video-optimized.mp4" type="video/mp4" />
+              </video>
+            </>
+          )}
         </div>
 
         <div className="absolute inset-0 bg-black/30 pointer-events-none" />
         <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-b from-transparent to-[#0D4F5C] pointer-events-none" />
+
+        {/* ─── MOBILE: centered tap-to-play button ─── */}
+        {isMobile && !mobilePlaying && (
+          <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
+            <button
+              onClick={handleMobilePlay}
+              aria-label="Play video"
+              className="relative pointer-events-auto w-[70px] h-[70px] rounded-full bg-white/25 backdrop-blur-sm border border-white/40 flex items-center justify-center active:scale-95 transition-transform"
+            >
+              {/* Pulse rings */}
+              <span className="absolute inset-0 rounded-full bg-white/20 animate-ping" />
+              <span className="absolute -inset-3 rounded-full border border-white/20 animate-pulse" />
+              <Play className="w-7 h-7 text-white fill-white translate-x-0.5" />
+            </button>
+          </div>
+        )}
+
+        {/* ─── MOBILE: mute / unmute (while playing) ─── */}
+        {isMobile && mobilePlaying && (
+          <button
+            onClick={toggleMobileMute}
+            aria-label={mobileMuted ? "Unmute video" : "Mute video"}
+            className="absolute bottom-24 right-5 z-30 w-11 h-11 rounded-full bg-black/40 backdrop-blur-sm border border-white/30 flex items-center justify-center text-white active:scale-95 transition-transform"
+          >
+            {mobileMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+          </button>
+        )}
 
         <div ref={heroTextRef} className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           <motion.p
@@ -460,26 +570,28 @@ export default function HomePage() {
           </motion.div>
         </div>
 
-        {/* Video dot indicators */}
-        <motion.div
-          className="absolute bottom-16 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.8 }}
-        >
-          {[0, 1].map((i) => (
-            <button
-              key={i}
-              onClick={() => handleDotClick(i)}
-              aria-label={`Switch to video ${i + 1}`}
-              className={`h-1.5 rounded-full transition-all duration-500 ${
-                activeVideo === i
-                  ? "w-6 bg-white"
-                  : "w-1.5 bg-white/40 hover:bg-white/60"
-              }`}
-            />
-          ))}
-        </motion.div>
+        {/* Video dot indicators — desktop crossfade only */}
+        {!isMobile && (
+          <motion.div
+            className="absolute bottom-16 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.8 }}
+          >
+            {[0, 1].map((i) => (
+              <button
+                key={i}
+                onClick={() => handleDotClick(i)}
+                aria-label={`Switch to video ${i + 1}`}
+                className={`h-1.5 rounded-full transition-all duration-500 ${
+                  activeVideo === i
+                    ? "w-6 bg-white"
+                    : "w-1.5 bg-white/40 hover:bg-white/60"
+                }`}
+              />
+            ))}
+          </motion.div>
+        )}
 
         {/* Scroll indicator */}
         <motion.div
