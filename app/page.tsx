@@ -469,7 +469,7 @@ export default function HomePage() {
                 playsInline
                 preload="none"
                 poster={HERO_POSTER}
-                {...({ "webkit-playsinline": "true" } as any)}
+                {...({ "webkit-playsinline": "true" } as Record<string, string>)}
               >
                 <source src="/boat-video-optimized.mp4" type="video/mp4" />
               </video>
