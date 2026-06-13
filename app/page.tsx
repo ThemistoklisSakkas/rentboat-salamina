@@ -478,12 +478,8 @@ export default function HomePage() {
                 onCanPlay={() => setMobileReady(true)}
                 {...({ "webkit-playsinline": "true" } as Record<string, string>)}
               >
-                {/* Hosted on the client's CDN — smaller + range-served, so it
-                    streams smoothly on mobile instead of stalling. */}
-                <source
-                  src="https://rentboatsalamina.gr/wp-content/uploads/2025/07/WhatsApp-Video-2025-07-02-at-12.50.51_234cd4b6.mp4"
-                  type="video/mp4"
-                />
+                {/* Local pre-compressed, fast-start MP4. */}
+                <source src="/boat-video-optimized.mp4" type="video/mp4" />
               </video>
             </>
           )}
