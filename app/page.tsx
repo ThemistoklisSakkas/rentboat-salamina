@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Anchor, Star, Clock, Users, ArrowRight, Phone, ChevronLeft, ChevronRight, Ticket, Play } from "lucide-react";
+import { Anchor, Star, Clock, Users, ArrowRight, Phone, ChevronLeft, ChevronRight, Ticket, Play, Loader2 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import MagneticButton from "@/components/MagneticButton";
 
@@ -228,8 +228,11 @@ export default function HomePage() {
   // Mobile "tap to play" hero state
   const [isMobile, setIsMobile] = useState(false);
   const [heroReady, setHeroReady] = useState(false); // detection has run (client only)
-  const [mobilePlaying, setMobilePlaying] = useState(false);
+  const [mobileTapped, setMobileTapped] = useState(false); // visitor tapped play
+  const [mobileReady, setMobileReady] = useState(false);   // canplay has fired
   const mobileVideoRef = useRef<HTMLVideoElement>(null);
+  // Video is only revealed once the visitor tapped AND it has buffered enough.
+  const mobileShowingVideo = mobileTapped && mobileReady;
 
   const statLabels = lang === "gr"
     ? ["Ευχαριστημένοι Πελάτες", "Χρόνια Εμπειρίας", "Σκάφη"]
@@ -363,13 +366,16 @@ export default function HomePage() {
   };
 
   // Mobile: tap the play button to start the looping video — always muted,
-  // which lets the play() call succeed reliably on iOS / Android.
+  // which lets the play() call succeed reliably on iOS / Android. A spinner
+  // shows until the canplay event reveals the video.
   const handleMobilePlay = () => {
     const v = mobileVideoRef.current;
     if (!v) return;
     v.muted = true;
+    setMobileTapped(true);
     v.play().catch(() => {});
-    setMobilePlaying(true);
+    // If the video already buffered during preload, reveal it immediately.
+    if (v.readyState >= 3) setMobileReady(true);
   };
 
   return (
@@ -434,8 +440,8 @@ export default function HomePage() {
           {/* ─── MOBILE: tap-to-play ─── */}
           {heroReady && isMobile && (
             <>
-              {/* Poster with a slow Ken Burns drift until playback starts */}
-              {!mobilePlaying && (
+              {/* Poster with a slow Ken Burns drift until the video is shown */}
+              {!mobileShowingVideo && (
                 <motion.div
                   className="absolute inset-0"
                   initial={{ scale: 1 }}
@@ -462,16 +468,22 @@ export default function HomePage() {
               <video
                 ref={mobileVideoRef}
                 className={`w-full h-full object-cover transition-opacity duration-700 ${
-                  mobilePlaying ? "opacity-100" : "opacity-0"
+                  mobileShowingVideo ? "opacity-100" : "opacity-0"
                 }`}
                 muted
                 loop
                 playsInline
-                preload="none"
+                preload="auto"
                 poster={HERO_POSTER}
+                onCanPlay={() => setMobileReady(true)}
                 {...({ "webkit-playsinline": "true" } as Record<string, string>)}
               >
-                <source src="/boat-video-optimized.mp4" type="video/mp4" />
+                {/* Hosted on the client's CDN — smaller + range-served, so it
+                    streams smoothly on mobile instead of stalling. */}
+                <source
+                  src="https://rentboatsalamina.gr/wp-content/uploads/2025/07/WhatsApp-Video-2025-07-02-at-12.50.51_234cd4b6.mp4"
+                  type="video/mp4"
+                />
               </video>
             </>
           )}
@@ -481,7 +493,7 @@ export default function HomePage() {
         <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-b from-transparent to-[#0D4F5C] pointer-events-none" />
 
         {/* ─── MOBILE: centered tap-to-play button ─── */}
-        {isMobile && !mobilePlaying && (
+        {isMobile && !mobileTapped && (
           <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
             <button
               onClick={handleMobilePlay}
@@ -493,6 +505,15 @@ export default function HomePage() {
               <span className="absolute -inset-3 rounded-full border border-white/20 animate-pulse" />
               <Play className="w-7 h-7 text-white fill-white translate-x-0.5" />
             </button>
+          </div>
+        )}
+
+        {/* ─── MOBILE: buffering spinner (after tap, until canplay) ─── */}
+        {isMobile && mobileTapped && !mobileReady && (
+          <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
+            <div className="w-[70px] h-[70px] rounded-full bg-white/25 backdrop-blur-sm border border-white/40 flex items-center justify-center">
+              <Loader2 className="w-8 h-8 text-white animate-spin" />
+            </div>
           </div>
         )}
 
