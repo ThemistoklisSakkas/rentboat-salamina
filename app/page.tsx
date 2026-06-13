@@ -229,10 +229,14 @@ export default function HomePage() {
   const [isMobile, setIsMobile] = useState(false);
   const [heroReady, setHeroReady] = useState(false); // detection has run (client only)
   const [mobileTapped, setMobileTapped] = useState(false); // visitor tapped play
-  const [mobileReady, setMobileReady] = useState(false);   // canplay has fired
+  const [mobileReady, setMobileReady] = useState(false);   // canplaythrough fired
+  const [mobileFailed, setMobileFailed] = useState(false); // gave up after retries
   const mobileVideoRef = useRef<HTMLVideoElement>(null);
-  // Video is only revealed once the visitor tapped AND it has buffered enough.
-  const mobileShowingVideo = mobileTapped && mobileReady;
+  const retryCountRef = useRef(0);
+  const revealTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // Video is only revealed once the visitor tapped AND it buffered through,
+  // and only while it hasn't permanently failed (then particles show through).
+  const mobileShowingVideo = mobileTapped && mobileReady && !mobileFailed;
 
   const statLabels = lang === "gr"
     ? ["Ευχαριστημένοι Πελάτες", "Χρόνια Εμπειρίας", "Σκάφη"]
@@ -365,18 +369,58 @@ export default function HomePage() {
     }, 8000);
   };
 
+  // Reveal the video — clears the safety timer so the spinner can't linger.
+  const revealMobileVideo = () => {
+    if (revealTimerRef.current) {
+      clearTimeout(revealTimerRef.current);
+      revealTimerRef.current = null;
+    }
+    setMobileReady(true);
+  };
+
   // Mobile: tap the play button to start the looping video — always muted,
   // which lets the play() call succeed reliably on iOS / Android. A spinner
-  // shows until the canplay event reveals the video.
+  // shows until the video has buffered enough (canplaythrough) to play smoothly.
   const handleMobilePlay = () => {
     const v = mobileVideoRef.current;
     if (!v) return;
     v.muted = true;
+    retryCountRef.current = 0;
+    setMobileFailed(false);
     setMobileTapped(true);
     v.play().catch(() => {});
-    // If the video already buffered during preload, reveal it immediately.
-    if (v.readyState >= 3) setMobileReady(true);
+    // HAVE_ENOUGH_DATA (4) means it's already buffered through.
+    if (v.readyState >= 4) revealMobileVideo();
+    // Safety net: iOS sometimes never fires canplaythrough for muted inline
+    // video — reveal anyway after 6s so the spinner can't spin forever.
+    if (revealTimerRef.current) clearTimeout(revealTimerRef.current);
+    revealTimerRef.current = setTimeout(() => setMobileReady(true), 6000);
   };
+
+  // If the video stalls or errors, reload + replay up to 3 times before
+  // giving up and letting the particle ocean show through underneath.
+  const retryMobileVideo = () => {
+    const v = mobileVideoRef.current;
+    if (!v) return;
+    if (retryCountRef.current >= 3) {
+      setMobileFailed(true);
+      return;
+    }
+    retryCountRef.current += 1;
+    try {
+      v.load();
+      v.play().catch(() => {});
+    } catch {
+      /* ignore — covered by the retry cap above */
+    }
+  };
+
+  // Clear the reveal-safety timer on unmount.
+  useEffect(() => {
+    return () => {
+      if (revealTimerRef.current) clearTimeout(revealTimerRef.current);
+    };
+  }, []);
 
   return (
     <>
@@ -386,7 +430,10 @@ export default function HomePage() {
         className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-navy"
       >
         <div ref={bgRef} className="absolute inset-0 origin-center overflow-hidden">
-          <ParticleOcean />
+          {/* z-0 — always-present background */}
+          <div className="absolute inset-0 z-0">
+            <ParticleOcean />
+          </div>
 
           {/* ─── DESKTOP: autoplay crossfading videos ─── */}
           {heroReady && !isMobile && (
@@ -440,10 +487,11 @@ export default function HomePage() {
           {/* ─── MOBILE: tap-to-play ─── */}
           {heroReady && isMobile && (
             <>
-              {/* Poster with a slow Ken Burns drift until the video is shown */}
-              {!mobileShowingVideo && (
+              {/* z-2 — poster with a slow Ken Burns drift until the video shows.
+                  Hidden once the video fails so the particles show through. */}
+              {!mobileShowingVideo && !mobileFailed && (
                 <motion.div
-                  className="absolute inset-0"
+                  className="absolute inset-0 z-[2]"
                   initial={{ scale: 1 }}
                   animate={{ scale: 1.12 }}
                   transition={{
@@ -464,10 +512,10 @@ export default function HomePage() {
                 </motion.div>
               )}
 
-              {/* The video itself — only fetched once the visitor taps play */}
+              {/* z-1 — the video itself, on top of the particles when playing */}
               <video
                 ref={mobileVideoRef}
-                className={`w-full h-full object-cover transition-opacity duration-700 ${
+                className={`absolute inset-0 z-[1] w-full h-full object-cover transition-opacity duration-700 ${
                   mobileShowingVideo ? "opacity-100" : "opacity-0"
                 }`}
                 muted
@@ -475,7 +523,13 @@ export default function HomePage() {
                 playsInline
                 preload="auto"
                 poster={HERO_POSTER}
-                onCanPlay={() => setMobileReady(true)}
+                onCanPlayThrough={revealMobileVideo}
+                onPlaying={() => {
+                  retryCountRef.current = 0;
+                  setMobileFailed(false);
+                }}
+                onStalled={() => { if (mobileTapped) retryMobileVideo(); }}
+                onError={() => { if (mobileTapped) retryMobileVideo(); }}
                 {...({ "webkit-playsinline": "true" } as Record<string, string>)}
               >
                 {/* Local 480p mobile-optimized MP4 (~1.4 MB) for fast start. */}
@@ -488,8 +542,10 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-black/30 pointer-events-none" />
         <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-b from-transparent to-[#0D4F5C] pointer-events-none" />
 
-        {/* ─── MOBILE: centered tap-to-play button ─── */}
-        {isMobile && !mobileTapped && (
+        {/* ─── MOBILE: centered tap-to-play button (also a manual retry after
+             a failure). Kept above the hero text so it stays visible and
+             tappable. ─── */}
+        {isMobile && (!mobileTapped || mobileFailed) && (
           <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
             <button
               onClick={handleMobilePlay}
@@ -504,8 +560,8 @@ export default function HomePage() {
           </div>
         )}
 
-        {/* ─── MOBILE: buffering spinner (after tap, until canplay) ─── */}
-        {isMobile && mobileTapped && !mobileReady && (
+        {/* ─── MOBILE: buffering spinner (after tap, until canplaythrough) ─── */}
+        {isMobile && mobileTapped && !mobileReady && !mobileFailed && (
           <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
             <div className="w-[70px] h-[70px] rounded-full bg-white/25 backdrop-blur-sm border border-white/40 flex items-center justify-center">
               <Loader2 className="w-8 h-8 text-white animate-spin" />
