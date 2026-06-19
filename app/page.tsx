@@ -452,7 +452,7 @@ export default function HomePage() {
                   onCanPlay={() => setVid1Ready(true)}
                   onLoadedData={() => setVid1Ready(true)}
                 >
-                  <source src="/boat-video-optimized.mp4" type="video/mp4" />
+                  <source src="/boat-hero-1.mp4" type="video/mp4" />
                 </video>
               </motion.div>
 
@@ -474,7 +474,7 @@ export default function HomePage() {
                   onCanPlay={() => setVid2Ready(true)}
                   onLoadedData={() => setVid2Ready(true)}
                 >
-                  <source src="/boat-video-2.mp4" type="video/mp4" />
+                  <source src="/boat-hero-2.mp4" type="video/mp4" />
                 </video>
               </motion.div>
             </>
@@ -528,8 +528,8 @@ export default function HomePage() {
                 onError={() => { if (mobileTapped) retryMobileVideo(); }}
                 {...({ "webkit-playsinline": "true" } as Record<string, string>)}
               >
-                {/* Landscape 853x480 mobile-optimized MP4 for fast start. */}
-                <source src="/boat-video-mobile.mp4" type="video/mp4" />
+                {/* Same hero footage as desktop. */}
+                <source src="/boat-hero-1.mp4" type="video/mp4" />
               </video>
             </>
           )}
