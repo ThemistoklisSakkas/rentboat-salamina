@@ -4,8 +4,8 @@
 
 @layer base {
   :root {
-    --background: #F0F7FC;
-    --foreground: #1A2B3C;
+    --background: #F5F8FB;
+    --foreground: #0B2645;
     --border: #D6EAF8;
     --ring: #0D5EAF;
   }
@@ -23,8 +23,8 @@
   }
 
   body {
-    background-color: #F0F7FC;
-    color: #1A2B3C;
+    background-color: #F5F8FB;
+    color: #0B2645;
     @apply antialiased;
     font-feature-settings: "kern" 1, "liga" 1;
   }
@@ -35,6 +35,6 @@
   }
 
   ::-webkit-scrollbar { width: 6px; }
-  ::-webkit-scrollbar-track { background: #F0F7FC; }
+  ::-webkit-scrollbar-track { background: #F5F8FB; }
   ::-webkit-scrollbar-thumb { background: #0D5EAF; border-radius: 3px; }
 }

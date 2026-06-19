@@ -36,7 +36,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex flex-col leading-none">
-          <span className="text-[#1A2B3C]/40 text-[9px] tracking-[0.3em] uppercase">Rent Boat</span>
+          <span className="text-[#0B2645]/40 text-[9px] tracking-[0.3em] uppercase">Rent Boat</span>
           <span className="text-gold font-bold text-sm tracking-widest uppercase">Salamina</span>
         </Link>
 
@@ -49,7 +49,7 @@ export default function Navbar() {
               className={`text-xs tracking-widest uppercase transition-colors duration-200 ${
                 pathname === l.href
                   ? "text-ocean-blue font-semibold"
-                  : "text-[#1A2B3C]/60 hover:text-[#1A2B3C]"
+                  : "text-[#0B2645]/60 hover:text-[#0B2645]"
               }`}
             >
               {l.label}
@@ -63,16 +63,16 @@ export default function Navbar() {
             <button
               onClick={() => setLang("en")}
               className={`transition-colors duration-200 ${
-                lang === "en" ? "text-gold font-semibold" : "text-[#1A2B3C]/35 hover:text-[#1A2B3C]/65"
+                lang === "en" ? "text-gold font-semibold" : "text-[#0B2645]/35 hover:text-[#0B2645]/65"
               }`}
             >
               EN
             </button>
-            <span className="text-[#1A2B3C]/20">|</span>
+            <span className="text-[#0B2645]/20">|</span>
             <button
               onClick={() => setLang("gr")}
               className={`transition-colors duration-200 ${
-                lang === "gr" ? "text-gold font-semibold" : "text-[#1A2B3C]/35 hover:text-[#1A2B3C]/65"
+                lang === "gr" ? "text-gold font-semibold" : "text-[#0B2645]/35 hover:text-[#0B2645]/65"
               }`}
             >
               ΕΛ
@@ -88,7 +88,7 @@ export default function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden text-[#1A2B3C]/70 hover:text-[#1A2B3C] transition-colors"
+          className="md:hidden text-[#0B2645]/70 hover:text-[#0B2645] transition-colors"
           onClick={() => setOpen(!open)}
           aria-label={open ? "Close menu" : "Open menu"}
         >
@@ -112,7 +112,7 @@ export default function Navbar() {
                 href={l.href}
                 onClick={() => setOpen(false)}
                 className={`block text-sm tracking-widest uppercase py-1 transition-colors ${
-                  pathname === l.href ? "text-ocean-blue font-semibold" : "text-[#1A2B3C]/70 hover:text-[#1A2B3C]"
+                  pathname === l.href ? "text-ocean-blue font-semibold" : "text-[#0B2645]/70 hover:text-[#0B2645]"
                 }`}
               >
                 {l.label}
@@ -122,14 +122,14 @@ export default function Navbar() {
               <div className="flex items-center gap-2 text-xs tracking-widest">
                 <button
                   onClick={() => setLang("en")}
-                  className={lang === "en" ? "text-gold font-semibold" : "text-[#1A2B3C]/35"}
+                  className={lang === "en" ? "text-gold font-semibold" : "text-[#0B2645]/35"}
                 >
                   EN
                 </button>
-                <span className="text-[#1A2B3C]/20">|</span>
+                <span className="text-[#0B2645]/20">|</span>
                 <button
                   onClick={() => setLang("gr")}
-                  className={lang === "gr" ? "text-gold font-semibold" : "text-[#1A2B3C]/35"}
+                  className={lang === "gr" ? "text-gold font-semibold" : "text-[#0B2645]/35"}
                 >
                   ΕΛ
                 </button>

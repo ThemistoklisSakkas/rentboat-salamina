@@ -14,7 +14,7 @@ const config: Config = {
         "warm-white":   "#F5F8FB",
         "section-gray": "#F5F5F0",
         "footer-bg":    "#F0F0EC",
-        charcoal:       "#1A2B3C",
+        charcoal:       "#0B2645",
         "body-text":    "#4A4A4A",
         "muted-text":   "#6B6B6B",
         "light-border": "#E5E5E0",

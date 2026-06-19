@@ -25,7 +25,7 @@ export default function ContactPage() {
   const { tr } = useLanguage();
 
   return (
-    <div className="bg-[#F0F7FC] min-h-screen pt-24">
+    <div className="bg-[#F5F8FB] min-h-screen pt-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-10 pb-24">
 
         {/* Header */}
@@ -36,7 +36,7 @@ export default function ContactPage() {
           className="text-center mb-16"
         >
           <p className="text-gold text-xs tracking-[0.4em] uppercase mb-3">{tr.contact.badge}</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#1A2B3C] mb-3">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#0B2645] mb-3">
             {tr.contact.title}{" "}
             <span className="text-gold">{tr.contact.titleHighlight}</span>
           </h1>
@@ -155,7 +155,7 @@ export default function ContactPage() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-[#4A4A4A] hover:text-ocean-blue text-sm transition-colors group"
                 >
-                  <div className="w-8 h-8 bg-[#F0F7FC] rounded-lg flex items-center justify-center text-[#6B6B6B] group-hover:text-ocean-blue transition-colors">
+                  <div className="w-8 h-8 bg-[#F5F8FB] rounded-lg flex items-center justify-center text-[#6B6B6B] group-hover:text-ocean-blue transition-colors">
                     <FacebookIcon className="w-4 h-4" />
                   </div>
                   Facebook
@@ -167,7 +167,7 @@ export default function ContactPage() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-[#4A4A4A] hover:text-ocean-blue text-sm transition-colors group"
                 >
-                  <div className="w-8 h-8 bg-[#F0F7FC] rounded-lg flex items-center justify-center text-[#6B6B6B] group-hover:text-ocean-blue transition-colors">
+                  <div className="w-8 h-8 bg-[#F5F8FB] rounded-lg flex items-center justify-center text-[#6B6B6B] group-hover:text-ocean-blue transition-colors">
                     <InstagramIcon className="w-4 h-4" />
                   </div>
                   Instagram
@@ -178,12 +178,12 @@ export default function ContactPage() {
 
             <div className="bg-gold/10 border border-gold/25 rounded-xl p-6">
               <p className="text-gold text-xs tracking-widest uppercase mb-2">{tr.contact.ctaBadge}</p>
-              <h3 className="text-[#1A2B3C] font-bold text-base mb-1">{tr.contact.ctaTitle}</h3>
+              <h3 className="text-[#0B2645] font-bold text-base mb-1">{tr.contact.ctaTitle}</h3>
               <p className="text-[#4A4A4A] text-sm mb-5">{tr.contact.ctaDesc}</p>
               <div className="flex flex-col gap-2">
                 <a
                   href="tel:+306978059001"
-                  className="inline-flex items-center justify-center gap-2 border border-[#D6EAF8] text-[#1A2B3C] hover:border-gold hover:text-gold text-xs tracking-widest uppercase px-4 py-2.5 rounded-sm transition-colors bg-white"
+                  className="inline-flex items-center justify-center gap-2 border border-[#D6EAF8] text-[#0B2645] hover:border-gold hover:text-gold text-xs tracking-widest uppercase px-4 py-2.5 rounded-sm transition-colors bg-white"
                 >
                   <Phone className="w-3.5 h-3.5" />
                   {tr.contact.callNow}

@@ -97,7 +97,7 @@ export default function FleetPage() {
   const [lightbox, setLightbox] = useState<{ src: string; name: string } | null>(null);
 
   return (
-    <div className="bg-[#F0F7FC] min-h-screen pt-24">
+    <div className="bg-[#F5F8FB] min-h-screen pt-24">
       {/* Header */}
       <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-10 pb-16">
         <motion.div
@@ -107,7 +107,7 @@ export default function FleetPage() {
           className="text-center"
         >
           <p className="text-gold text-xs tracking-[0.4em] uppercase mb-3">{tr.fleet.badge}</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#1A2B3C] mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#0B2645] mb-4">
             {tr.fleet.title}{" "}
             <span className="text-gold">{tr.fleet.titleHighlight}</span>
           </h1>
@@ -156,7 +156,7 @@ export default function FleetPage() {
                     <div className="p-6">
                       <div className="flex items-start justify-between mb-3">
                         <div>
-                          <h2 className="text-[#1A2B3C] font-bold text-xl">{boat.name}</h2>
+                          <h2 className="text-[#0B2645] font-bold text-xl">{boat.name}</h2>
                           <p className="text-gold text-xs tracking-widest uppercase mt-0.5">{boat.type}</p>
                         </div>
                         <span className="text-[#6B6B6B] text-xs border border-[#D6EAF8] px-2.5 py-1 rounded">
@@ -200,7 +200,7 @@ export default function FleetPage() {
                         {boatTr.features.map((f) => (
                           <span
                             key={f}
-                            className="bg-[#F0F7FC] border border-[#D6EAF8] text-[#4A4A4A] text-xs px-3 py-1 rounded-full"
+                            className="bg-[#F5F8FB] border border-[#D6EAF8] text-[#4A4A4A] text-xs px-3 py-1 rounded-full"
                           >
                             {f}
                           </span>

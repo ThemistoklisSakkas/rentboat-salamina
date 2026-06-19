@@ -8,6 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Anchor, Star, Clock, Users, ArrowRight, Phone, ChevronLeft, ChevronRight, Ticket, Play, Loader2 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import MagneticButton from "@/components/MagneticButton";
+import SalaminaMap from "@/components/SalaminaMap";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -152,7 +153,7 @@ function TestimonialCarousel({ reviews }: { reviews: ReadonlyArray<Review> }) {
           {slides.map((review, i) => (
             <div
               key={i}
-              className="flex-shrink-0 flex flex-col bg-[#F0F7FC] border border-[#D6EAF8] rounded-lg p-8 shadow-sm cursor-grab active:cursor-grabbing select-none"
+              className="flex-shrink-0 flex flex-col bg-[#F5F8FB] border border-[#D6EAF8] rounded-lg p-8 shadow-sm cursor-grab active:cursor-grabbing select-none"
               style={{ width: cardW || undefined }}
             >
               <div className="flex gap-1 mb-4">
@@ -187,7 +188,7 @@ function TestimonialCarousel({ reviews }: { reviews: ReadonlyArray<Review> }) {
               onClick={() => { setIndex(count + i); resetTimer(); }}
               aria-label={`Go to review ${i + 1}`}
               className={`h-1.5 rounded-full transition-all duration-300 ${
-                activeDot === i ? "w-6 bg-gold" : "w-1.5 bg-[#1A2B3C]/20 hover:bg-[#1A2B3C]/40"
+                activeDot === i ? "w-6 bg-gold" : "w-1.5 bg-[#0B2645]/20 hover:bg-[#0B2645]/40"
               }`}
             />
           ))}
@@ -582,7 +583,7 @@ export default function HomePage() {
             className="text-5xl md:text-7xl font-bold text-white leading-tight mb-6"
           >
             {tr.home.h1a}{" "}
-            <span className="text-gold">{tr.home.h1b}</span>
+            <span className="text-gold italic">{tr.home.h1b}</span>
             <br />
             {tr.home.h1c}
           </motion.h1>
@@ -669,9 +670,9 @@ export default function HomePage() {
             <p className="text-gold text-xs tracking-[0.35em] uppercase mb-3">
               {tr.home.whyBadge}
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1A2B3C]">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0B2645]">
               {tr.home.whyTitle}{" "}
-              <span className="text-gold">{tr.home.whySalamina}</span>
+              <span className="text-gold italic">{tr.home.whySalamina}</span>
             </h2>
           </motion.div>
 
@@ -681,12 +682,15 @@ export default function HomePage() {
               return (
                 <div
                   key={f.title}
-                  className="feat-card bg-white border border-[#D6EAF8] shadow-sm rounded-lg p-6 hover:border-gold/50 transition-colors duration-300"
+                  className="feat-card relative bg-white border border-[#D6EAF8] shadow-sm rounded-lg p-6 hover:border-gold/50 transition-colors duration-300"
                 >
+                  <span className="absolute top-4 right-5 font-display text-3xl font-bold text-[#0B2645]/15 leading-none">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
                   <div className="w-10 h-10 rounded-lg bg-[#2E86C1]/10 flex items-center justify-center mb-4">
                     <Icon className="w-5 h-5 text-gold" />
                   </div>
-                  <h3 className="text-[#1A2B3C] font-semibold mb-2">{f.title}</h3>
+                  <h3 className="text-[#0B2645] font-semibold mb-2">{f.title}</h3>
                   <p className="text-[#4A4A4A] text-sm leading-relaxed">{f.desc}</p>
                 </div>
               );
@@ -698,7 +702,7 @@ export default function HomePage() {
       {/* ═══════════════════════ STAT COUNTERS ═══════════════════════ */}
       <div
         ref={statsRef}
-        className="bg-[#F0F7FC] border-y border-[#D6EAF8] py-14 px-6 lg:px-12"
+        className="bg-[#F5F8FB] border-y border-[#D6EAF8] py-14 px-6 lg:px-12"
       >
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
           {STAT_VALUES.map((_, i) => (
@@ -726,9 +730,9 @@ export default function HomePage() {
               <p className="text-gold text-xs tracking-[0.35em] uppercase mb-2">
                 {tr.home.fleetBadge}
               </p>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#1A2B3C]">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#0B2645]">
                 {tr.home.fleetTitle}{" "}
-                <span className="text-gold">{tr.home.fleetHighlight}</span>
+                <span className="text-gold italic">{tr.home.fleetHighlight}</span>
               </h2>
             </div>
             <p className="text-[#6B6B6B] text-sm tracking-wide">
@@ -747,7 +751,7 @@ export default function HomePage() {
                 key={boat.name}
                 className="group flex-shrink-0 w-[340px]"
               >
-                <div className="relative overflow-hidden rounded-xl aspect-[4/3] mb-4 bg-[#F0F7FC]">
+                <div className="relative overflow-hidden rounded-xl aspect-[4/3] mb-4 bg-[#F5F8FB]">
                   <Image
                     src={boat.img}
                     alt={boat.name}
@@ -764,24 +768,24 @@ export default function HomePage() {
                 </div>
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-[#1A2B3C] font-semibold">{boat.name}</p>
+                    <p className="text-[#0B2645] font-semibold">{boat.name}</p>
                     <p className="text-[#6B6B6B] text-xs mt-0.5">
                       {boat.cap} {tr.home.pax}
                     </p>
                   </div>
-                  <ArrowRight className="w-4 h-4 text-[#1A2B3C]/25 group-hover:text-gold group-hover:translate-x-1 transition-all duration-200" />
+                  <ArrowRight className="w-4 h-4 text-[#0B2645]/25 group-hover:text-gold group-hover:translate-x-1 transition-all duration-200" />
                 </div>
               </Link>
             ))}
 
             <Link
               href="/fleet"
-              className="group flex-shrink-0 w-[260px] flex flex-col items-center justify-center rounded-xl border border-[#D6EAF8] hover:border-gold/50 bg-[#F0F7FC] shadow-sm transition-colors duration-300 mr-12 gap-4"
+              className="group flex-shrink-0 w-[260px] flex flex-col items-center justify-center rounded-xl border border-[#D6EAF8] hover:border-gold/50 bg-[#F5F8FB] shadow-sm transition-colors duration-300 mr-12 gap-4"
             >
               <div className="w-12 h-12 rounded-full bg-[#2E86C1]/10 flex items-center justify-center group-hover:bg-gold/25 transition-colors duration-300">
                 <ArrowRight className="w-5 h-5 text-gold" />
               </div>
-              <span className="text-[#6B6B6B] group-hover:text-[#1A2B3C] text-sm tracking-widest uppercase transition-colors">
+              <span className="text-[#6B6B6B] group-hover:text-[#0B2645] text-sm tracking-widest uppercase transition-colors">
                 {tr.home.viewAll}
               </span>
             </Link>
@@ -795,7 +799,7 @@ export default function HomePage() {
           <p className="text-gold text-xs tracking-[0.35em] uppercase mb-2">
             {tr.home.fleetBadge}
           </p>
-          <h2 className="text-3xl font-bold text-[#1A2B3C]">
+          <h2 className="text-3xl font-bold text-[#0B2645]">
             {tr.home.fleetTitle}{" "}
             <span className="text-gold">{tr.home.fleetHighlight}</span>
           </h2>
@@ -807,7 +811,7 @@ export default function HomePage() {
               key={boat.name}
               className="group flex-shrink-0 w-[280px] snap-start"
             >
-              <div className="relative overflow-hidden rounded-xl aspect-[4/3] mb-3 bg-[#F0F7FC]">
+              <div className="relative overflow-hidden rounded-xl aspect-[4/3] mb-3 bg-[#F5F8FB]">
                 <Image
                   src={boat.img}
                   alt={boat.name}
@@ -817,7 +821,7 @@ export default function HomePage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
               </div>
-              <p className="text-[#1A2B3C] font-semibold">{boat.name}</p>
+              <p className="text-[#0B2645] font-semibold">{boat.name}</p>
               <p className="text-[#6B6B6B] text-xs mt-0.5">
                 {boat.type} · {boat.cap} {tr.home.pax}
               </p>
@@ -833,7 +837,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════ DESTINATIONS ═══════════════════════ */}
-      <section className="bg-[#F0F7FC] py-24 px-6 lg:px-12" ref={destRef}>
+      <section className="bg-[#F5F8FB] py-24 px-6 lg:px-12" ref={destRef}>
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -845,9 +849,9 @@ export default function HomePage() {
             <p className="text-gold text-xs tracking-[0.35em] uppercase mb-3">
               {tr.home.destBadge}
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1A2B3C]">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0B2645]">
               {tr.home.destTitle}{" "}
-              <span className="text-gold">{tr.home.destHighlight}</span>
+              <span className="text-gold italic">{tr.home.destHighlight}</span>
             </h2>
             <p className="text-[#4A4A4A] text-sm mt-4 max-w-md mx-auto">
               {tr.home.destDesc}
@@ -867,7 +871,7 @@ export default function HomePage() {
                   className="object-cover group-hover:scale-110 transition-transform duration-700"
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1A2B3C]/90 via-[#1A2B3C]/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B2645]/90 via-[#0B2645]/20 to-transparent" />
                 <div className="absolute bottom-0 inset-x-0 p-4">
                   <div className="w-6 h-px bg-gold mb-2 group-hover:w-10 transition-all duration-300" />
                   <p className="text-white font-semibold text-sm leading-snug">{d}</p>
@@ -875,6 +879,43 @@ export default function HomePage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════ ISLAND MAP ═══════════════════════ */}
+      <section className="bg-white py-24 px-6 lg:px-12">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="text-center mb-12"
+          >
+            <p className="text-gold text-xs tracking-[0.35em] uppercase mb-3">
+              {lang === "gr" ? "Ο Χάρτης του Νησιού" : "The Island Map"}
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0B2645]">
+              {lang === "gr" ? "Εξερεύνησε τη " : "Explore "}
+              <span className="italic font-display text-gold">
+                {lang === "gr" ? "Σαλαμίνα" : "Salamina"}
+              </span>
+            </h2>
+            <p className="text-[#4A4A4A] text-sm mt-4 max-w-md mx-auto">
+              {lang === "gr"
+                ? "Πέρασε το δείκτη ή πάτησε σε κάθε σημείο για να δεις τους προορισμούς μας."
+                : "Hover or tap each point to discover our destinations."}
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.97 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <SalaminaMap />
+          </motion.div>
         </div>
       </section>
 
@@ -891,7 +932,7 @@ export default function HomePage() {
             <p className="text-gold text-xs tracking-[0.35em] uppercase mb-3">
               {tr.home.reviewsBadge}
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1A2B3C]">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0B2645]">
               {tr.home.reviewsTitle}
             </h2>
           </motion.div>
@@ -904,7 +945,7 @@ export default function HomePage() {
               href="https://maps.app.goo.gl/VvRvoU2g1DbyFGuu8"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 border border-[#D6EAF8] bg-white text-[#4A4A4A] hover:border-gold hover:text-[#1A2B3C] text-sm px-6 py-3 rounded-full shadow-sm transition-colors duration-200"
+              className="inline-flex items-center gap-2.5 border border-[#D6EAF8] bg-white text-[#4A4A4A] hover:border-gold hover:text-[#0B2645] text-sm px-6 py-3 rounded-full shadow-sm transition-colors duration-200"
             >
               <svg className="w-4 h-4" viewBox="0 0 24 24" aria-hidden="true">
                 <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z" />
@@ -920,7 +961,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════ CTA ═══════════════════════ */}
-      <section className="bg-[#F0F7FC] py-24 px-6 lg:px-12 border-t border-[#D6EAF8]">
+      <section className="bg-[#F5F8FB] py-24 px-6 lg:px-12 border-t border-[#D6EAF8]">
         <motion.div
           className="max-w-3xl mx-auto text-center"
           initial={{ opacity: 0, y: 20 }}
@@ -928,7 +969,7 @@ export default function HomePage() {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-[#1A2B3C] mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-[#0B2645] mb-4">
             {tr.home.ctaTitle}
           </h2>
           <p className="text-[#4A4A4A] text-base mb-10 leading-relaxed max-w-xl mx-auto">
@@ -937,7 +978,7 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
               href="tel:+306978059001"
-              className="inline-flex items-center gap-2 border border-[#D6EAF8] bg-white text-[#1A2B3C] hover:border-gold hover:text-gold text-sm tracking-widest uppercase px-8 py-3.5 rounded-sm transition-colors duration-200"
+              className="inline-flex items-center gap-2 border border-[#D6EAF8] bg-white text-[#0B2645] hover:border-gold hover:text-gold text-sm tracking-widest uppercase px-8 py-3.5 rounded-sm transition-colors duration-200"
             >
               <Phone className="w-4 h-4" />
               +30 697 805 9001

@@ -24,13 +24,13 @@ export default function Footer() {
   const { tr } = useLanguage();
 
   return (
-    <footer className="bg-[#F0F7FC] border-t border-[#D6EAF8] text-[#1A2B3C]">
+    <footer className="bg-[#F5F8FB] border-t border-[#D6EAF8] text-[#0B2645]">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
 
           {/* Brand */}
           <div>
-            <p className="text-[#1A2B3C]/40 text-[9px] tracking-[0.3em] uppercase mb-0.5">Rent Boat</p>
+            <p className="text-[#0B2645]/40 text-[9px] tracking-[0.3em] uppercase mb-0.5">Rent Boat</p>
             <p className="text-gold font-bold text-base tracking-widest uppercase mb-4">Salamina</p>
             <p className="text-[#4A4A4A] text-sm leading-relaxed max-w-xs">
               {tr.footer.tagline}

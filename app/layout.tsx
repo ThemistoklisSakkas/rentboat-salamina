@@ -94,7 +94,7 @@ export default function RootLayout({
           async
         />
       </head>
-      <body className="antialiased bg-[#F5F8FB] text-[#1A2B3C]">
+      <body className="antialiased bg-[#F5F8FB] text-[#0B2645]">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}

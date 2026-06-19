@@ -12,7 +12,7 @@ export default function BookingPage() {
   const { tr } = useLanguage();
 
   return (
-    <div className="bg-[#F0F7FC] min-h-screen pt-24">
+    <div className="bg-[#F5F8FB] min-h-screen pt-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-10 pb-24">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -21,7 +21,7 @@ export default function BookingPage() {
           className="mb-12"
         >
           <p className="text-gold text-xs tracking-[0.4em] uppercase mb-3">{tr.booking.badge}</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#1A2B3C] mb-3">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#0B2645] mb-3">
             {tr.booking.title}{" "}
             <span className="text-gold">{tr.booking.titleHighlight}</span>
           </h1>
@@ -40,7 +40,7 @@ export default function BookingPage() {
               <p className="text-gold text-xs tracking-widest uppercase border-b border-[#D6EAF8] pb-2 mb-5">
                 {tr.booking.sectionBooking}
               </p>
-              <h2 className="text-2xl font-bold text-[#1A2B3C] mb-3">
+              <h2 className="text-2xl font-bold text-[#0B2645] mb-3">
                 {tr.booking.title} {tr.booking.titleHighlight}
               </h2>
               <p className="text-[#4A4A4A] text-sm leading-relaxed mb-8 max-w-md">
