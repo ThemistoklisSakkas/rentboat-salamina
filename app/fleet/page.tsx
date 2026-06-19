@@ -97,7 +97,7 @@ export default function FleetPage() {
   const [lightbox, setLightbox] = useState<{ src: string; name: string } | null>(null);
 
   return (
-    <div className="bg-[#F5F8FB] min-h-screen pt-24">
+    <div className="bg-[#F0F7FC] min-h-screen pt-24">
       {/* Header */}
       <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-10 pb-16">
         <motion.div
@@ -130,7 +130,7 @@ export default function FleetPage() {
                 transition={{ duration: 0.6, delay: i * 0.1 }}
               >
                 <TiltCard>
-                  <div className="bg-white border border-[#E5E5E0] rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-gold/40 transition-all duration-300 group">
+                  <div className="bg-white border border-[#D6EAF8] rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-gold/40 transition-all duration-300 group">
                     <div
                       className="relative aspect-[16/9] overflow-hidden cursor-zoom-in"
                       onClick={() => setLightbox({ src: boat.image, name: boat.name })}
@@ -159,7 +159,7 @@ export default function FleetPage() {
                           <h2 className="text-[#1A2B3C] font-bold text-xl">{boat.name}</h2>
                           <p className="text-gold text-xs tracking-widest uppercase mt-0.5">{boat.type}</p>
                         </div>
-                        <span className="text-[#6B6B6B] text-xs border border-[#E5E5E0] px-2.5 py-1 rounded">
+                        <span className="text-[#6B6B6B] text-xs border border-[#D6EAF8] px-2.5 py-1 rounded">
                           {tr.fleet.contactPrice}
                         </span>
                       </div>
@@ -168,7 +168,7 @@ export default function FleetPage() {
                         {boatTr.description}
                       </p>
 
-                      <div className="flex flex-wrap gap-4 mb-5 pb-5 border-b border-[#E5E5E0]">
+                      <div className="flex flex-wrap gap-4 mb-5 pb-5 border-b border-[#D6EAF8]">
                         <div className="flex items-center gap-1.5 text-[#6B6B6B] text-xs">
                           <Users className="w-3.5 h-3.5 text-gold" />
                           {boat.capacity} {tr.fleet.passengers}
@@ -200,7 +200,7 @@ export default function FleetPage() {
                         {boatTr.features.map((f) => (
                           <span
                             key={f}
-                            className="bg-[#F5F5F0] border border-[#E5E5E0] text-[#4A4A4A] text-xs px-3 py-1 rounded-full"
+                            className="bg-[#F0F7FC] border border-[#D6EAF8] text-[#4A4A4A] text-xs px-3 py-1 rounded-full"
                           >
                             {f}
                           </span>
@@ -226,7 +226,7 @@ export default function FleetPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.7 }}
-          className="mt-16 text-center border-t border-[#E5E5E0] pt-10"
+          className="mt-16 text-center border-t border-[#D6EAF8] pt-10"
         >
           <p className="text-[#6B6B6B] text-sm">
             {tr.fleet.noteText}{" "}

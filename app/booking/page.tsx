@@ -12,7 +12,7 @@ export default function BookingPage() {
   const { tr } = useLanguage();
 
   return (
-    <div className="bg-[#F5F8FB] min-h-screen pt-24">
+    <div className="bg-[#F0F7FC] min-h-screen pt-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-10 pb-24">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -35,9 +35,9 @@ export default function BookingPage() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="bg-white border border-[#E5E5E0] rounded-xl p-10 shadow-sm"
+              className="bg-white border border-[#D6EAF8] rounded-xl p-10 shadow-sm"
             >
-              <p className="text-gold text-xs tracking-widest uppercase border-b border-[#E5E5E0] pb-2 mb-5">
+              <p className="text-gold text-xs tracking-widest uppercase border-b border-[#D6EAF8] pb-2 mb-5">
                 {tr.booking.sectionBooking}
               </p>
               <h2 className="text-2xl font-bold text-[#1A2B3C] mb-3">
@@ -67,7 +67,7 @@ export default function BookingPage() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="space-y-4"
             >
-              <div className="bg-white border border-[#E5E5E0] rounded-xl p-6 shadow-sm">
+              <div className="bg-white border border-[#D6EAF8] rounded-xl p-6 shadow-sm">
                 <p className="text-gold text-xs tracking-widest uppercase mb-4">
                   {tr.contact.phoneTitle}
                 </p>

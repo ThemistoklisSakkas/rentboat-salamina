@@ -23,7 +23,7 @@ const config: Config = {
         gold:           "#0D5EAF",
         "gold-light":   "#1E88E5",
         // Dark accents (hero, hover links)
-        navy:           "#0A1628",
+        navy:           "#2E86C1",
         "ocean-blue":   "#1A4B8C",
         // CSS vars
         background: "var(--background)",

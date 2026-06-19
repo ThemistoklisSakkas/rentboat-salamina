@@ -25,7 +25,7 @@ export default function ContactPage() {
   const { tr } = useLanguage();
 
   return (
-    <div className="bg-[#F5F8FB] min-h-screen pt-24">
+    <div className="bg-[#F0F7FC] min-h-screen pt-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-10 pb-24">
 
         {/* Header */}
@@ -48,7 +48,7 @@ export default function ContactPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0 }}
-            className="bg-white border border-[#E5E5E0] rounded-xl p-6 shadow-sm hover:shadow-md hover:border-gold/40 transition-all"
+            className="bg-white border border-[#D6EAF8] rounded-xl p-6 shadow-sm hover:shadow-md hover:border-gold/40 transition-all"
           >
             <div className="w-10 h-10 bg-gold/10 rounded-lg flex items-center justify-center mb-4">
               <Phone className="w-5 h-5 text-gold" />
@@ -67,7 +67,7 @@ export default function ContactPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="bg-white border border-[#E5E5E0] rounded-xl p-6 shadow-sm hover:shadow-md hover:border-gold/40 transition-all"
+            className="bg-white border border-[#D6EAF8] rounded-xl p-6 shadow-sm hover:shadow-md hover:border-gold/40 transition-all"
           >
             <div className="w-10 h-10 bg-gold/10 rounded-lg flex items-center justify-center mb-4">
               <Mail className="w-5 h-5 text-gold" />
@@ -82,7 +82,7 @@ export default function ContactPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-white border border-[#E5E5E0] rounded-xl p-6 shadow-sm hover:shadow-md hover:border-gold/40 transition-all"
+            className="bg-white border border-[#D6EAF8] rounded-xl p-6 shadow-sm hover:shadow-md hover:border-gold/40 transition-all"
           >
             <div className="w-10 h-10 bg-gold/10 rounded-lg flex items-center justify-center mb-4">
               <MapPin className="w-5 h-5 text-gold" />
@@ -108,7 +108,7 @@ export default function ContactPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="bg-white border border-[#E5E5E0] rounded-xl p-6 shadow-sm hover:shadow-md hover:border-gold/40 transition-all"
+            className="bg-white border border-[#D6EAF8] rounded-xl p-6 shadow-sm hover:shadow-md hover:border-gold/40 transition-all"
           >
             <div className="w-10 h-10 bg-gold/10 rounded-lg flex items-center justify-center mb-4">
               <Clock className="w-5 h-5 text-gold" />
@@ -127,7 +127,7 @@ export default function ContactPage() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="lg:col-span-2"
           >
-            <div className="rounded-xl overflow-hidden h-[380px] border border-[#E5E5E0] shadow-sm">
+            <div className="rounded-xl overflow-hidden h-[380px] border border-[#D6EAF8] shadow-sm">
               <iframe
                 src="https://maps.google.com/maps?q=Marina+Salaminas+Salamina+Greece&t=&z=14&ie=UTF8&iwloc=&output=embed"
                 width="100%"
@@ -146,7 +146,7 @@ export default function ContactPage() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="space-y-5"
           >
-            <div className="bg-white border border-[#E5E5E0] rounded-xl p-6 shadow-sm">
+            <div className="bg-white border border-[#D6EAF8] rounded-xl p-6 shadow-sm">
               <p className="text-[#6B6B6B] text-xs tracking-widest uppercase mb-4">{tr.contact.followUs}</p>
               <div className="space-y-3">
                 <a
@@ -155,7 +155,7 @@ export default function ContactPage() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-[#4A4A4A] hover:text-ocean-blue text-sm transition-colors group"
                 >
-                  <div className="w-8 h-8 bg-[#F5F5F0] rounded-lg flex items-center justify-center text-[#6B6B6B] group-hover:text-ocean-blue transition-colors">
+                  <div className="w-8 h-8 bg-[#F0F7FC] rounded-lg flex items-center justify-center text-[#6B6B6B] group-hover:text-ocean-blue transition-colors">
                     <FacebookIcon className="w-4 h-4" />
                   </div>
                   Facebook
@@ -167,7 +167,7 @@ export default function ContactPage() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-[#4A4A4A] hover:text-ocean-blue text-sm transition-colors group"
                 >
-                  <div className="w-8 h-8 bg-[#F5F5F0] rounded-lg flex items-center justify-center text-[#6B6B6B] group-hover:text-ocean-blue transition-colors">
+                  <div className="w-8 h-8 bg-[#F0F7FC] rounded-lg flex items-center justify-center text-[#6B6B6B] group-hover:text-ocean-blue transition-colors">
                     <InstagramIcon className="w-4 h-4" />
                   </div>
                   Instagram
@@ -183,7 +183,7 @@ export default function ContactPage() {
               <div className="flex flex-col gap-2">
                 <a
                   href="tel:+306978059001"
-                  className="inline-flex items-center justify-center gap-2 border border-[#E5E5E0] text-[#1A2B3C] hover:border-gold hover:text-gold text-xs tracking-widest uppercase px-4 py-2.5 rounded-sm transition-colors bg-white"
+                  className="inline-flex items-center justify-center gap-2 border border-[#D6EAF8] text-[#1A2B3C] hover:border-gold hover:text-gold text-xs tracking-widest uppercase px-4 py-2.5 rounded-sm transition-colors bg-white"
                 >
                   <Phone className="w-3.5 h-3.5" />
                   {tr.contact.callNow}

@@ -15,8 +15,8 @@ export default function ParticleOcean() {
     const H = window.innerHeight;
 
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x0a1628);
-    scene.fog = new THREE.FogExp2(0x0a1628, 0.032);
+    scene.background = new THREE.Color(0x2e86c1);
+    scene.fog = new THREE.FogExp2(0x2e86c1, 0.032);
 
     const camera = new THREE.PerspectiveCamera(60, W / H, 0.1, 200);
     camera.position.set(0, 7, 20);
@@ -38,21 +38,21 @@ export default function ParticleOcean() {
       positions[i3 + 2] = (Math.random() - 0.5) * 60;
 
       const t = Math.random();
-      if (t < 0.55) {
-        // Deep ocean blue
-        colors[i3] = 0.08 + Math.random() * 0.08;
-        colors[i3 + 1] = 0.25 + Math.random() * 0.12;
-        colors[i3 + 2] = 0.5 + Math.random() * 0.2;
-      } else if (t < 0.8) {
+      if (t < 0.5) {
         // White foam
-        colors[i3] = 0.75 + Math.random() * 0.25;
-        colors[i3 + 1] = 0.85 + Math.random() * 0.15;
+        colors[i3] = 0.9 + Math.random() * 0.1;
+        colors[i3 + 1] = 0.95 + Math.random() * 0.05;
         colors[i3 + 2] = 1.0;
+      } else if (t < 0.8) {
+        // Greek-blue glimmer — #0D5EAF
+        colors[i3] = 0.05 + Math.random() * 0.05;
+        colors[i3 + 1] = 0.37 + Math.random() * 0.08;
+        colors[i3 + 2] = 0.69 + Math.random() * 0.1;
       } else {
-        // Greek blue glimmer — #1E88E5
-        colors[i3] = 0.118;
-        colors[i3 + 1] = 0.533;
-        colors[i3 + 2] = 0.898;
+        // Light sky blue — #5DADE2
+        colors[i3] = 0.36;
+        colors[i3 + 1] = 0.68;
+        colors[i3 + 2] = 0.89;
       }
     }
 

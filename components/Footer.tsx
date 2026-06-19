@@ -24,7 +24,7 @@ export default function Footer() {
   const { tr } = useLanguage();
 
   return (
-    <footer className="bg-[#F0F0EC] border-t border-[#E5E5E0] text-[#1A2B3C]">
+    <footer className="bg-[#F0F7FC] border-t border-[#D6EAF8] text-[#1A2B3C]">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
 
@@ -40,7 +40,7 @@ export default function Footer() {
                 href="https://www.facebook.com/rentboatsalamina.gr"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded border border-[#E5E5E0] flex items-center justify-center text-[#6B6B6B] hover:text-gold hover:border-gold/50 transition-colors duration-200"
+                className="w-8 h-8 rounded border border-[#D6EAF8] flex items-center justify-center text-[#6B6B6B] hover:text-gold hover:border-gold/50 transition-colors duration-200"
                 aria-label="Facebook"
               >
                 <FacebookIcon className="w-3.5 h-3.5" />
@@ -49,7 +49,7 @@ export default function Footer() {
                 href="https://www.instagram.com/rentboatsalamina.gr"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded border border-[#E5E5E0] flex items-center justify-center text-[#6B6B6B] hover:text-gold hover:border-gold/50 transition-colors duration-200"
+                className="w-8 h-8 rounded border border-[#D6EAF8] flex items-center justify-center text-[#6B6B6B] hover:text-gold hover:border-gold/50 transition-colors duration-200"
                 aria-label="Instagram"
               >
                 <InstagramIcon className="w-3.5 h-3.5" />
@@ -112,7 +112,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-[#E5E5E0] pt-6 flex flex-col md:flex-row justify-between items-center gap-2 text-[#6B6B6B] text-xs tracking-wide">
+        <div className="border-t border-[#D6EAF8] pt-6 flex flex-col md:flex-row justify-between items-center gap-2 text-[#6B6B6B] text-xs tracking-wide">
           <p>© {new Date().getFullYear()} Rent Boat Salamina. {tr.footer.rights}</p>
           <p>Αρ. ΓΕΜΗ: 177621609000</p>
         </div>

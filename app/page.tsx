@@ -154,7 +154,7 @@ function TestimonialCarousel({ reviews }: { reviews: ReadonlyArray<Review> }) {
           {slides.map((review, i) => (
             <div
               key={i}
-              className="flex-shrink-0 flex flex-col bg-[#F5F5F0] border border-[#E5E5E0] rounded-lg p-8 shadow-sm cursor-grab active:cursor-grabbing select-none"
+              className="flex-shrink-0 flex flex-col bg-[#F0F7FC] border border-[#D6EAF8] rounded-lg p-8 shadow-sm cursor-grab active:cursor-grabbing select-none"
               style={{ width: cardW || undefined }}
             >
               <div className="flex gap-1 mb-4">
@@ -178,7 +178,7 @@ function TestimonialCarousel({ reviews }: { reviews: ReadonlyArray<Review> }) {
         <button
           onClick={() => { paginate(-1); resetTimer(); }}
           aria-label="Previous review"
-          className="w-9 h-9 rounded-full border border-[#E5E5E0] flex items-center justify-center text-[#6B6B6B] hover:border-gold hover:text-gold transition-colors"
+          className="w-9 h-9 rounded-full border border-[#D6EAF8] flex items-center justify-center text-[#6B6B6B] hover:border-gold hover:text-gold transition-colors"
         >
           <ChevronLeft className="w-4 h-4" />
         </button>
@@ -197,7 +197,7 @@ function TestimonialCarousel({ reviews }: { reviews: ReadonlyArray<Review> }) {
         <button
           onClick={() => { paginate(1); resetTimer(); }}
           aria-label="Next review"
-          className="w-9 h-9 rounded-full border border-[#E5E5E0] flex items-center justify-center text-[#6B6B6B] hover:border-gold hover:text-gold transition-colors"
+          className="w-9 h-9 rounded-full border border-[#D6EAF8] flex items-center justify-center text-[#6B6B6B] hover:border-gold hover:text-gold transition-colors"
         >
           <ChevronRight className="w-4 h-4" />
         </button>
@@ -426,7 +426,7 @@ export default function HomePage() {
       {/* ═══════════════════════ HERO ═══════════════════════ */}
       <section
         ref={heroRef}
-        className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-navy"
+        className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-[#2E86C1]"
       >
         <div ref={bgRef} className="absolute inset-0 origin-center overflow-hidden">
           {/* z-0 — always-present background */}
@@ -538,8 +538,8 @@ export default function HomePage() {
           )}
         </div>
 
-        <div className="absolute inset-0 bg-black/30 pointer-events-none" />
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-b from-transparent to-[#0A1628] pointer-events-none" />
+        <div className="absolute inset-0 bg-blue-900/30 pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-b from-transparent to-white pointer-events-none" />
 
         {/* ─── MOBILE: centered tap-to-play button (also a manual retry after
              a failure). Kept above the hero text so it stays visible and
@@ -660,7 +660,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════ WHY US ═══════════════════════ */}
-      <section className="bg-[#0A1628] py-24 px-6 lg:px-12" ref={featuresRef}>
+      <section className="bg-white py-24 px-6 lg:px-12" ref={featuresRef}>
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -672,7 +672,7 @@ export default function HomePage() {
             <p className="text-gold text-xs tracking-[0.35em] uppercase mb-3">
               {tr.home.whyBadge}
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-white">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1A2B3C]">
               {tr.home.whyTitle}{" "}
               <span className="text-gold">{tr.home.whySalamina}</span>
             </h2>
@@ -684,13 +684,13 @@ export default function HomePage() {
               return (
                 <div
                   key={f.title}
-                  className="feat-card bg-white/10 border border-white/15 rounded-lg p-6 hover:border-gold/50 transition-colors duration-300"
+                  className="feat-card bg-white border border-[#D6EAF8] shadow-sm rounded-lg p-6 hover:border-gold/50 transition-colors duration-300"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-gold/15 flex items-center justify-center mb-4">
+                  <div className="w-10 h-10 rounded-lg bg-[#2E86C1]/10 flex items-center justify-center mb-4">
                     <Icon className="w-5 h-5 text-gold" />
                   </div>
-                  <h3 className="text-white font-semibold mb-2">{f.title}</h3>
-                  <p className="text-white/65 text-sm leading-relaxed">{f.desc}</p>
+                  <h3 className="text-[#1A2B3C] font-semibold mb-2">{f.title}</h3>
+                  <p className="text-[#4A4A4A] text-sm leading-relaxed">{f.desc}</p>
                 </div>
               );
             })}
@@ -701,7 +701,7 @@ export default function HomePage() {
       {/* ═══════════════════════ STAT COUNTERS ═══════════════════════ */}
       <div
         ref={statsRef}
-        className="bg-[#0A1628] border-y border-white/10 py-14 px-6 lg:px-12"
+        className="bg-[#F0F7FC] border-y border-[#D6EAF8] py-14 px-6 lg:px-12"
       >
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
           {STAT_VALUES.map((_, i) => (
@@ -710,7 +710,7 @@ export default function HomePage() {
                 <span ref={(el) => { counterRefs.current[i] = el; }}>0</span>
                 {STAT_SUFFIXES[i]}
               </div>
-              <p className="text-white/70 text-xs tracking-widest uppercase mt-1">
+              <p className="text-[#6B6B6B] text-xs tracking-widest uppercase mt-1">
                 {statLabels[i]}
               </p>
             </div>
@@ -721,7 +721,7 @@ export default function HomePage() {
       {/* ═══════════════════════ FLEET — desktop horizontal scroll ═══════════════════════ */}
       <section
         ref={fleetSectionRef}
-        className="hidden md:block overflow-hidden bg-[#0A1628]"
+        className="hidden md:block overflow-hidden bg-white"
       >
         <div className="h-screen flex flex-col justify-center">
           <div className="flex items-end justify-between px-12 mb-10 flex-shrink-0">
@@ -729,12 +729,12 @@ export default function HomePage() {
               <p className="text-gold text-xs tracking-[0.35em] uppercase mb-2">
                 {tr.home.fleetBadge}
               </p>
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#1A2B3C]">
                 {tr.home.fleetTitle}{" "}
                 <span className="text-gold">{tr.home.fleetHighlight}</span>
               </h2>
             </div>
-            <p className="text-white/50 text-sm tracking-wide">
+            <p className="text-[#6B6B6B] text-sm tracking-wide">
               {lang === "gr" ? "← Κύλισε για να δεις →" : "← Scroll to explore →"}
             </p>
           </div>
@@ -750,7 +750,7 @@ export default function HomePage() {
                 key={boat.name}
                 className="group flex-shrink-0 w-[340px]"
               >
-                <div className="relative overflow-hidden rounded-xl aspect-[4/3] mb-4 bg-white/10">
+                <div className="relative overflow-hidden rounded-xl aspect-[4/3] mb-4 bg-[#F0F7FC]">
                   <Image
                     src={boat.img}
                     alt={boat.name}
@@ -767,24 +767,24 @@ export default function HomePage() {
                 </div>
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-white font-semibold">{boat.name}</p>
-                    <p className="text-white/55 text-xs mt-0.5">
+                    <p className="text-[#1A2B3C] font-semibold">{boat.name}</p>
+                    <p className="text-[#6B6B6B] text-xs mt-0.5">
                       {boat.cap} {tr.home.pax}
                     </p>
                   </div>
-                  <ArrowRight className="w-4 h-4 text-white/30 group-hover:text-gold group-hover:translate-x-1 transition-all duration-200" />
+                  <ArrowRight className="w-4 h-4 text-[#1A2B3C]/25 group-hover:text-gold group-hover:translate-x-1 transition-all duration-200" />
                 </div>
               </Link>
             ))}
 
             <Link
               href="/fleet"
-              className="group flex-shrink-0 w-[260px] flex flex-col items-center justify-center rounded-xl border border-white/15 hover:border-gold/50 bg-white/5 transition-colors duration-300 mr-12 gap-4"
+              className="group flex-shrink-0 w-[260px] flex flex-col items-center justify-center rounded-xl border border-[#D6EAF8] hover:border-gold/50 bg-[#F0F7FC] shadow-sm transition-colors duration-300 mr-12 gap-4"
             >
-              <div className="w-12 h-12 rounded-full bg-gold/15 flex items-center justify-center group-hover:bg-gold/25 transition-colors duration-300">
+              <div className="w-12 h-12 rounded-full bg-[#2E86C1]/10 flex items-center justify-center group-hover:bg-gold/25 transition-colors duration-300">
                 <ArrowRight className="w-5 h-5 text-gold" />
               </div>
-              <span className="text-white/60 group-hover:text-white text-sm tracking-widest uppercase transition-colors">
+              <span className="text-[#6B6B6B] group-hover:text-[#1A2B3C] text-sm tracking-widest uppercase transition-colors">
                 {tr.home.viewAll}
               </span>
             </Link>
@@ -793,12 +793,12 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════ FLEET — mobile grid fallback ═══════════════════════ */}
-      <section className="md:hidden bg-[#0A1628] py-24 px-6">
+      <section className="md:hidden bg-white py-24 px-6">
         <div className="mb-10">
           <p className="text-gold text-xs tracking-[0.35em] uppercase mb-2">
             {tr.home.fleetBadge}
           </p>
-          <h2 className="text-3xl font-bold text-white">
+          <h2 className="text-3xl font-bold text-[#1A2B3C]">
             {tr.home.fleetTitle}{" "}
             <span className="text-gold">{tr.home.fleetHighlight}</span>
           </h2>
@@ -810,7 +810,7 @@ export default function HomePage() {
               key={boat.name}
               className="group flex-shrink-0 w-[280px] snap-start"
             >
-              <div className="relative overflow-hidden rounded-xl aspect-[4/3] mb-3 bg-white/10">
+              <div className="relative overflow-hidden rounded-xl aspect-[4/3] mb-3 bg-[#F0F7FC]">
                 <Image
                   src={boat.img}
                   alt={boat.name}
@@ -820,8 +820,8 @@ export default function HomePage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
               </div>
-              <p className="text-white font-semibold">{boat.name}</p>
-              <p className="text-white/55 text-xs mt-0.5">
+              <p className="text-[#1A2B3C] font-semibold">{boat.name}</p>
+              <p className="text-[#6B6B6B] text-xs mt-0.5">
                 {boat.type} · {boat.cap} {tr.home.pax}
               </p>
             </Link>
@@ -836,7 +836,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════ DESTINATIONS ═══════════════════════ */}
-      <section className="bg-[#F5F8FB] py-24 px-6 lg:px-12" ref={destRef}>
+      <section className="bg-[#F0F7FC] py-24 px-6 lg:px-12" ref={destRef}>
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -870,7 +870,7 @@ export default function HomePage() {
                   className="object-cover group-hover:scale-110 transition-transform duration-700"
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628]/90 via-[#0A1628]/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1A2B3C]/90 via-[#1A2B3C]/20 to-transparent" />
                 <div className="absolute bottom-0 inset-x-0 p-4">
                   <div className="w-6 h-px bg-gold mb-2 group-hover:w-10 transition-all duration-300" />
                   <p className="text-white font-semibold text-sm leading-snug">{d}</p>
@@ -907,7 +907,7 @@ export default function HomePage() {
               href="https://maps.app.goo.gl/VvRvoU2g1DbyFGuu8"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 border border-[#E5E5E0] bg-white text-[#4A4A4A] hover:border-gold hover:text-[#1A2B3C] text-sm px-6 py-3 rounded-full shadow-sm transition-colors duration-200"
+              className="inline-flex items-center gap-2.5 border border-[#D6EAF8] bg-white text-[#4A4A4A] hover:border-gold hover:text-[#1A2B3C] text-sm px-6 py-3 rounded-full shadow-sm transition-colors duration-200"
             >
               <svg className="w-4 h-4" viewBox="0 0 24 24" aria-hidden="true">
                 <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z" />
@@ -923,7 +923,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════ CTA ═══════════════════════ */}
-      <section className="bg-[#0A1628] py-24 px-6 lg:px-12 border-t border-white/10">
+      <section className="bg-[#F0F7FC] py-24 px-6 lg:px-12 border-t border-[#D6EAF8]">
         <motion.div
           className="max-w-3xl mx-auto text-center"
           initial={{ opacity: 0, y: 20 }}
@@ -931,16 +931,16 @@ export default function HomePage() {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-[#1A2B3C] mb-4">
             {tr.home.ctaTitle}
           </h2>
-          <p className="text-white/70 text-base mb-10 leading-relaxed max-w-xl mx-auto">
+          <p className="text-[#4A4A4A] text-base mb-10 leading-relaxed max-w-xl mx-auto">
             {tr.home.ctaDesc}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
               href="tel:+306978059001"
-              className="inline-flex items-center gap-2 border border-white/30 text-white hover:border-gold hover:text-gold text-sm tracking-widest uppercase px-8 py-3.5 rounded-sm transition-colors duration-200"
+              className="inline-flex items-center gap-2 border border-[#D6EAF8] bg-white text-[#1A2B3C] hover:border-gold hover:text-gold text-sm tracking-widest uppercase px-8 py-3.5 rounded-sm transition-colors duration-200"
             >
               <Phone className="w-4 h-4" />
               +30 697 805 9001
