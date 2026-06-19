@@ -10,7 +10,6 @@ const BOATS = [
   "Anna",
   "Quality",
   "Andromeda – Technohull Alpha 40",
-  "Happy Family (Including Jet-Ski)",
 ];
 
 const inputClass =

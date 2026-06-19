@@ -48,8 +48,6 @@ type BoatMeta = {
   location: string;
   badge?: string;
   image: string;
-  // PLACEHOLDER prices — confirm real rates with the customer before launch.
-  priceFrom?: string;
 };
 
 const boatsMeta: BoatMeta[] = [
@@ -61,7 +59,6 @@ const boatsMeta: BoatMeta[] = [
     avgSpeed: "20 knots",
     location: "Salamina Marina",
     image: "https://rentboatsalamina.gr/wp-content/uploads/2024/05/IMG_2991-740x482.jpg",
-    priceFrom: "€100",
   },
   {
     name: "Anna",
@@ -71,7 +68,6 @@ const boatsMeta: BoatMeta[] = [
     avgSpeed: "20 knots",
     location: "Salamina Marina",
     image: "https://rentboatsalamina.gr/wp-content/uploads/2024/05/IMG_2990-740x482.jpg",
-    priceFrom: "€100",
   },
   {
     name: "Quality",
@@ -81,7 +77,6 @@ const boatsMeta: BoatMeta[] = [
     avgSpeed: "20 knots",
     location: "Salamina Marina",
     image: "https://rentboatsalamina.gr/wp-content/uploads/2018/06/%CE%B5%CE%B9%CE%BA%CF%8C%CE%BD%CE%B1_Viber_2024-07-11_17-55-43-077-scaled-e1720718416291-740x482.jpg",
-    priceFrom: "€100",
   },
   {
     name: "Andromeda",
@@ -95,19 +90,6 @@ const boatsMeta: BoatMeta[] = [
     location: "Salamina Marina",
     badge: "Premium",
     image: "https://rentboatsalamina.gr/wp-content/uploads/2025/07/DSC_3560-740x482.jpg",
-    priceFrom: "€600",
-  },
-  {
-    name: "Happy Family",
-    bookingName: "Happy Family (Including Jet-Ski)",
-    type: "Sea Ray 42.5ft · Boat + Jet-Ski",
-    capacity: 8,
-    avgSpeed: "20 knots",
-    maxSpeed: "30 knots",
-    location: "Salamina Marina",
-    badge: "Best Value",
-    image: "https://rentboatsalamina.gr/wp-content/uploads/2025/06/IMG-20250615-WA0005-740x482.jpg",
-    priceFrom: "€250",
   },
 ];
 
@@ -178,21 +160,9 @@ export default function FleetPage() {
                           <h2 className="text-[#1A2B3C] font-bold text-xl">{boat.name}</h2>
                           <p className="text-gold text-xs tracking-widest uppercase mt-0.5">{boat.type}</p>
                         </div>
-                        {boat.priceFrom ? (
-                          <span className="text-right flex-shrink-0">
-                            <span className="block text-[#6B6B6B] text-[10px] tracking-widest uppercase">
-                              {tr.fleet.from}
-                            </span>
-                            <span className="text-gold font-bold text-lg leading-tight">
-                              {boat.priceFrom}
-                              <span className="text-[#6B6B6B] font-normal text-xs"> {tr.fleet.perDay}</span>
-                            </span>
-                          </span>
-                        ) : (
-                          <span className="text-[#6B6B6B] text-xs border border-[#E5E5E0] px-2.5 py-1 rounded">
-                            {tr.fleet.contactPrice}
-                          </span>
-                        )}
+                        <span className="text-[#6B6B6B] text-xs border border-[#E5E5E0] px-2.5 py-1 rounded">
+                          {tr.fleet.contactPrice}
+                        </span>
                       </div>
 
                       <p className="text-[#4A4A4A] text-sm leading-relaxed mb-5">

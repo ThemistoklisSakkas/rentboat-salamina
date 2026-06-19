@@ -91,7 +91,7 @@ const en = {
       },
       {
         name: "Sophie L.",
-        text: "The Happy Family package with the jet-ski was the highlight of our Greek holiday. Absolutely loved it!",
+        text: "Renting without a license was so simple, and the crystal-clear waters around Salamina were unforgettable. Absolutely loved it!",
       },
     ],
     ctaTitle: "Ready to Set Sail?",
@@ -157,16 +157,6 @@ const en = {
           "Bluetooth / radio",
           "Swimming ladder",
           "Life jackets included",
-        ],
-      },
-      {
-        description:
-          "The ultimate family package! Rent a comfortable boat AND a jet-ski for maximum fun on the water. Great for family outings and group adventures around Salamina island.",
-        features: [
-          "Includes 1 Jet-Ski",
-          "No license required",
-          "Life jackets included",
-          "Snorkelling gear",
         ],
       },
     ],
@@ -325,7 +315,7 @@ const gr: typeof en = {
       },
       {
         name: "Σοφία Λ.",
-        text: "Το πακέτο Happy Family με το jet-ski ήταν η κορυφαία στιγμή των διακοπών μας. Το λατρέψαμε!",
+        text: "Η ενοικίαση χωρίς δίπλωμα ήταν πανεύκολη και τα κρυστάλλινα νερά γύρω από τη Σαλαμίνα ήταν αξέχαστα. Το λατρέψαμε!",
       },
     ],
     ctaTitle: "Έτοιμος να Αποπλεύσεις;",
@@ -391,16 +381,6 @@ const gr: typeof en = {
           "Bluetooth / ραδιόφωνο",
           "Σκάλα κολύμβησης",
           "Σωσίβια περιλαμβάνονται",
-        ],
-      },
-      {
-        description:
-          "Το απόλυτο οικογενειακό πακέτο! Νοικίασε ένα άνετο σκάφος ΚΑΙ ένα jet-ski για μέγιστη διασκέδαση στο νερό. Υπέροχο για οικογενειακές εκδρομές και ομαδικές περιπέτειες γύρω από τη Σαλαμίνα.",
-        features: [
-          "Περιλαμβάνει 1 Jet-Ski",
-          "Χωρίς δίπλωμα",
-          "Σωσίβια περιλαμβάνονται",
-          "Εξοπλισμός κατάδυσης",
         ],
       },
     ],

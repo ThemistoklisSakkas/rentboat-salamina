@@ -21,7 +21,6 @@ const allBoats = [
   { name: "Anna",         booking: "Anna",                                type: "Speed Boat",     cap: 5,  img: "https://rentboatsalamina.gr/wp-content/uploads/2024/05/IMG_2990-740x482.jpg" },
   { name: "Quality",      booking: "Quality",                             type: "Speed Boat",     cap: 5,  img: "https://rentboatsalamina.gr/wp-content/uploads/2018/06/%CE%B5%CE%B9%CE%BA%CF%8C%CE%BD%CE%B1_Viber_2024-07-11_17-55-43-077-scaled-e1720718416291-740x482.jpg" },
   { name: "Andromeda",    booking: "Andromeda – Technohull Alpha 40",     type: "Luxury RIB",     cap: 10, img: "https://rentboatsalamina.gr/wp-content/uploads/2025/07/DSC_3560-740x482.jpg" },
-  { name: "Happy Family", booking: "Happy Family (Including Jet-Ski)",    type: "Sea Ray 42.5ft", cap: 8,  img: "https://rentboatsalamina.gr/wp-content/uploads/2025/06/IMG-20250615-WA0005-740x482.jpg" },
 ];
 
 const featureIcons = [Anchor, Star, Users, Clock];
