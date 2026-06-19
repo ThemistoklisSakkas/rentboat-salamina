@@ -11,16 +11,17 @@ const config: Config = {
     extend: {
       colors: {
         // Light site palette
-        "warm-white":   "#FAFAF8",
+        "warm-white":   "#F5F8FB",
         "section-gray": "#F5F5F0",
         "footer-bg":    "#F0F0EC",
-        charcoal:       "#1A1A1A",
+        charcoal:       "#1A2B3C",
         "body-text":    "#4A4A4A",
         "muted-text":   "#6B6B6B",
         "light-border": "#E5E5E0",
-        // Accent
-        gold:           "#F0A500",
-        "gold-light":   "#F5B833",
+        // Accent — Greek blue (token kept named "gold" so existing
+        // text-gold / bg-gold / fill-gold classes remap site-wide).
+        gold:           "#0D5EAF",
+        "gold-light":   "#1E88E5",
         // Dark accents (hero, hover links)
         navy:           "#0A1628",
         "ocean-blue":   "#1A4B8C",

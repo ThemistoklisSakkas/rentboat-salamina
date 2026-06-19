@@ -85,7 +85,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="el" className={`${inter.variable} ${garamond.variable}`}>
-      <body className="antialiased bg-[#FAFAF8] text-[#1A1A1A]">
+      <body className="antialiased bg-[#F5F8FB] text-[#1A2B3C]">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}

@@ -14,7 +14,7 @@ const BOATS = [
 ];
 
 const inputClass =
-  "w-full bg-white border border-[#E5E5E0] text-[#1A1A1A] placeholder-[#6B6B6B] rounded-sm px-4 py-3 text-sm focus:outline-none focus:border-gold transition-colors duration-200";
+  "w-full bg-white border border-[#E5E5E0] text-[#1A2B3C] placeholder-[#6B6B6B] rounded-sm px-4 py-3 text-sm focus:outline-none focus:border-gold transition-colors duration-200";
 
 const labelClass = "block text-[#6B6B6B] text-xs tracking-widest uppercase mb-2";
 
@@ -76,7 +76,7 @@ function BookingForm() {
         <div className="w-14 h-14 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-5">
           <CheckCircle className="w-7 h-7 text-gold" />
         </div>
-        <h2 className="text-2xl font-bold text-[#1A1A1A] mb-3">{tr.booking.successTitle}</h2>
+        <h2 className="text-2xl font-bold text-[#1A2B3C] mb-3">{tr.booking.successTitle}</h2>
         <p className="text-[#4A4A4A] text-sm leading-relaxed mb-2">
           {tr.booking.successMsg(form.name, form.boat, form.startDate)}
         </p>
@@ -84,14 +84,14 @@ function BookingForm() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
           <a
             href="tel:+306978059001"
-            className="inline-flex items-center gap-2 border border-[#E5E5E0] text-[#1A1A1A] hover:border-gold hover:text-gold text-xs tracking-widest uppercase px-6 py-2.5 rounded-sm transition-colors"
+            className="inline-flex items-center gap-2 border border-[#E5E5E0] text-[#1A2B3C] hover:border-gold hover:text-gold text-xs tracking-widest uppercase px-6 py-2.5 rounded-sm transition-colors"
           >
             <Phone className="w-3.5 h-3.5" />
             {tr.booking.callUsBtn}
           </a>
           <a
             href="mailto:info@rentboatsalamina.gr"
-            className="inline-flex items-center gap-2 border border-[#E5E5E0] text-[#1A1A1A] hover:border-gold hover:text-gold text-xs tracking-widest uppercase px-6 py-2.5 rounded-sm transition-colors"
+            className="inline-flex items-center gap-2 border border-[#E5E5E0] text-[#1A2B3C] hover:border-gold hover:text-gold text-xs tracking-widest uppercase px-6 py-2.5 rounded-sm transition-colors"
           >
             <Mail className="w-3.5 h-3.5" />
             {tr.booking.emailUsBtn}
@@ -146,7 +146,7 @@ function BookingForm() {
               {tr.booking.selectBoatPlaceholder}
             </option>
             {BOATS.map((b) => (
-              <option key={b} value={b} className="bg-white text-[#1A1A1A]">{b}</option>
+              <option key={b} value={b} className="bg-white text-[#1A2B3C]">{b}</option>
             ))}
           </select>
         </div>
@@ -185,7 +185,7 @@ function BookingForm() {
       <div className="flex flex-col sm:flex-row sm:items-center gap-3">
         <button
           type="submit"
-          className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-navy font-bold text-xs tracking-widest uppercase px-8 py-3.5 rounded-sm transition-colors duration-200 group"
+          className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-white font-bold text-xs tracking-widest uppercase px-8 py-3.5 rounded-sm transition-colors duration-200 group"
         >
           {tr.booking.submit}
           <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
@@ -200,7 +200,7 @@ export default function BookingPage() {
   const { tr } = useLanguage();
 
   return (
-    <div className="bg-[#FAFAF8] min-h-screen pt-24">
+    <div className="bg-[#F5F8FB] min-h-screen pt-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-10 pb-24">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -209,7 +209,7 @@ export default function BookingPage() {
           className="mb-12"
         >
           <p className="text-gold text-xs tracking-[0.4em] uppercase mb-3">{tr.booking.badge}</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#1A1A1A] mb-3">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#1A2B3C] mb-3">
             {tr.booking.title}{" "}
             <span className="text-gold">{tr.booking.titleHighlight}</span>
           </h1>

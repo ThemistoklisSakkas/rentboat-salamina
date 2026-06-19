@@ -26,7 +26,7 @@ export default function ContactPage() {
   const { tr } = useLanguage();
 
   return (
-    <div className="bg-[#FAFAF8] min-h-screen pt-24">
+    <div className="bg-[#F5F8FB] min-h-screen pt-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-10 pb-24">
 
         {/* Header */}
@@ -37,7 +37,7 @@ export default function ContactPage() {
           className="text-center mb-16"
         >
           <p className="text-gold text-xs tracking-[0.4em] uppercase mb-3">{tr.contact.badge}</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#1A1A1A] mb-3">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#1A2B3C] mb-3">
             {tr.contact.title}{" "}
             <span className="text-gold">{tr.contact.titleHighlight}</span>
           </h1>
@@ -179,19 +179,19 @@ export default function ContactPage() {
 
             <div className="bg-gold/10 border border-gold/25 rounded-xl p-6">
               <p className="text-gold text-xs tracking-widest uppercase mb-2">{tr.contact.ctaBadge}</p>
-              <h3 className="text-[#1A1A1A] font-bold text-base mb-1">{tr.contact.ctaTitle}</h3>
+              <h3 className="text-[#1A2B3C] font-bold text-base mb-1">{tr.contact.ctaTitle}</h3>
               <p className="text-[#4A4A4A] text-sm mb-5">{tr.contact.ctaDesc}</p>
               <div className="flex flex-col gap-2">
                 <a
                   href="tel:+306978059001"
-                  className="inline-flex items-center justify-center gap-2 border border-[#E5E5E0] text-[#1A1A1A] hover:border-gold hover:text-gold text-xs tracking-widest uppercase px-4 py-2.5 rounded-sm transition-colors bg-white"
+                  className="inline-flex items-center justify-center gap-2 border border-[#E5E5E0] text-[#1A2B3C] hover:border-gold hover:text-gold text-xs tracking-widest uppercase px-4 py-2.5 rounded-sm transition-colors bg-white"
                 >
                   <Phone className="w-3.5 h-3.5" />
                   {tr.contact.callNow}
                 </a>
                 <Link
                   href="/booking"
-                  className="inline-flex items-center justify-center gap-2 bg-gold hover:bg-gold-light text-navy font-bold text-xs tracking-widest uppercase px-4 py-2.5 rounded-sm transition-colors"
+                  className="inline-flex items-center justify-center gap-2 bg-gold hover:bg-gold-light text-white font-bold text-xs tracking-widest uppercase px-4 py-2.5 rounded-sm transition-colors"
                 >
                   {tr.contact.bookOnline}
                   <ArrowRight className="w-3.5 h-3.5" />

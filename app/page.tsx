@@ -190,7 +190,7 @@ function TestimonialCarousel({ reviews }: { reviews: ReadonlyArray<Review> }) {
               onClick={() => { setIndex(count + i); resetTimer(); }}
               aria-label={`Go to review ${i + 1}`}
               className={`h-1.5 rounded-full transition-all duration-300 ${
-                activeDot === i ? "w-6 bg-gold" : "w-1.5 bg-[#1A1A1A]/20 hover:bg-[#1A1A1A]/40"
+                activeDot === i ? "w-6 bg-gold" : "w-1.5 bg-[#1A2B3C]/20 hover:bg-[#1A2B3C]/40"
               }`}
             />
           ))}
@@ -540,7 +540,7 @@ export default function HomePage() {
         </div>
 
         <div className="absolute inset-0 bg-black/30 pointer-events-none" />
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-b from-transparent to-[#0D4F5C] pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-b from-transparent to-[#0A1628] pointer-events-none" />
 
         {/* ─── MOBILE: centered tap-to-play button (also a manual retry after
              a failure). Kept above the hero text so it stays visible and
@@ -608,7 +608,7 @@ export default function HomePage() {
           >
             <MagneticButton
               href="/booking"
-              className="bg-gold hover:bg-gold-light text-navy font-bold text-sm tracking-widest uppercase px-8 py-3.5 rounded-sm transition-colors duration-200 inline-block"
+              className="bg-gold hover:bg-gold-light text-white font-bold text-sm tracking-widest uppercase px-8 py-3.5 rounded-sm transition-colors duration-200 inline-block"
             >
               {tr.home.bookNow}
             </MagneticButton>
@@ -661,7 +661,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════ WHY US ═══════════════════════ */}
-      <section className="bg-[#0D4F5C] py-24 px-6 lg:px-12" ref={featuresRef}>
+      <section className="bg-[#0A1628] py-24 px-6 lg:px-12" ref={featuresRef}>
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -702,7 +702,7 @@ export default function HomePage() {
       {/* ═══════════════════════ STAT COUNTERS ═══════════════════════ */}
       <div
         ref={statsRef}
-        className="bg-[#0D4F5C] border-y border-white/10 py-14 px-6 lg:px-12"
+        className="bg-[#0A1628] border-y border-white/10 py-14 px-6 lg:px-12"
       >
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
           {STAT_VALUES.map((_, i) => (
@@ -722,7 +722,7 @@ export default function HomePage() {
       {/* ═══════════════════════ FLEET — desktop horizontal scroll ═══════════════════════ */}
       <section
         ref={fleetSectionRef}
-        className="hidden md:block overflow-hidden bg-[#0D4F5C]"
+        className="hidden md:block overflow-hidden bg-[#0A1628]"
       >
         <div className="h-screen flex flex-col justify-center">
           <div className="flex items-end justify-between px-12 mb-10 flex-shrink-0">
@@ -794,7 +794,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════ FLEET — mobile grid fallback ═══════════════════════ */}
-      <section className="md:hidden bg-[#0D4F5C] py-24 px-6">
+      <section className="md:hidden bg-[#0A1628] py-24 px-6">
         <div className="mb-10">
           <p className="text-gold text-xs tracking-[0.35em] uppercase mb-2">
             {tr.home.fleetBadge}
@@ -837,7 +837,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════ DESTINATIONS ═══════════════════════ */}
-      <section className="bg-[#FAFAF8] py-24 px-6 lg:px-12" ref={destRef}>
+      <section className="bg-[#F5F8FB] py-24 px-6 lg:px-12" ref={destRef}>
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -849,7 +849,7 @@ export default function HomePage() {
             <p className="text-gold text-xs tracking-[0.35em] uppercase mb-3">
               {tr.home.destBadge}
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1A1A1A]">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1A2B3C]">
               {tr.home.destTitle}{" "}
               <span className="text-gold">{tr.home.destHighlight}</span>
             </h2>
@@ -871,7 +871,7 @@ export default function HomePage() {
                   className="object-cover group-hover:scale-110 transition-transform duration-700"
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0D4F5C]/90 via-[#0D4F5C]/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628]/90 via-[#0A1628]/20 to-transparent" />
                 <div className="absolute bottom-0 inset-x-0 p-4">
                   <div className="w-6 h-px bg-gold mb-2 group-hover:w-10 transition-all duration-300" />
                   <p className="text-white font-semibold text-sm leading-snug">{d}</p>
@@ -895,7 +895,7 @@ export default function HomePage() {
             <p className="text-gold text-xs tracking-[0.35em] uppercase mb-3">
               {tr.home.reviewsBadge}
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1A1A1A]">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1A2B3C]">
               {tr.home.reviewsTitle}
             </h2>
           </motion.div>
@@ -908,7 +908,7 @@ export default function HomePage() {
               href="https://maps.app.goo.gl/VvRvoU2g1DbyFGuu8"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 border border-[#E5E5E0] bg-white text-[#4A4A4A] hover:border-gold hover:text-[#1A1A1A] text-sm px-6 py-3 rounded-full shadow-sm transition-colors duration-200"
+              className="inline-flex items-center gap-2.5 border border-[#E5E5E0] bg-white text-[#4A4A4A] hover:border-gold hover:text-[#1A2B3C] text-sm px-6 py-3 rounded-full shadow-sm transition-colors duration-200"
             >
               <svg className="w-4 h-4" viewBox="0 0 24 24" aria-hidden="true">
                 <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z" />
@@ -924,7 +924,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════ CTA ═══════════════════════ */}
-      <section className="bg-[#0D4F5C] py-24 px-6 lg:px-12 border-t border-white/10">
+      <section className="bg-[#0A1628] py-24 px-6 lg:px-12 border-t border-white/10">
         <motion.div
           className="max-w-3xl mx-auto text-center"
           initial={{ opacity: 0, y: 20 }}
@@ -948,7 +948,7 @@ export default function HomePage() {
             </a>
             <MagneticButton
               href="/booking"
-              className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-navy font-bold text-sm tracking-widest uppercase px-8 py-3.5 rounded-sm transition-colors duration-200"
+              className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-white font-bold text-sm tracking-widest uppercase px-8 py-3.5 rounded-sm transition-colors duration-200"
             >
               {tr.home.bookOnline}
               <ArrowRight className="w-4 h-4" />

@@ -49,10 +49,10 @@ export default function ParticleOcean() {
         colors[i3 + 1] = 0.85 + Math.random() * 0.15;
         colors[i3 + 2] = 1.0;
       } else {
-        // Gold glimmer — #F0A500
-        colors[i3] = 0.94;
-        colors[i3 + 1] = 0.65;
-        colors[i3 + 2] = 0.0;
+        // Greek blue glimmer — #1E88E5
+        colors[i3] = 0.118;
+        colors[i3 + 1] = 0.533;
+        colors[i3 + 2] = 0.898;
       }
     }
 

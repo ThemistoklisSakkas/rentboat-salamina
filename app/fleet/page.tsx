@@ -116,7 +116,7 @@ export default function FleetPage() {
   const [lightbox, setLightbox] = useState<{ src: string; name: string } | null>(null);
 
   return (
-    <div className="bg-[#FAFAF8] min-h-screen pt-24">
+    <div className="bg-[#F5F8FB] min-h-screen pt-24">
       {/* Header */}
       <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-10 pb-16">
         <motion.div
@@ -126,7 +126,7 @@ export default function FleetPage() {
           className="text-center"
         >
           <p className="text-gold text-xs tracking-[0.4em] uppercase mb-3">{tr.fleet.badge}</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#1A1A1A] mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#1A2B3C] mb-4">
             {tr.fleet.title}{" "}
             <span className="text-gold">{tr.fleet.titleHighlight}</span>
           </h1>
@@ -166,7 +166,7 @@ export default function FleetPage() {
                         <Expand className="w-4 h-4" />
                       </div>
                       {boat.badge && (
-                        <div className="absolute top-4 left-4 bg-gold text-navy text-[10px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-sm">
+                        <div className="absolute top-4 left-4 bg-gold text-white text-[10px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-sm">
                           {boat.badge}
                         </div>
                       )}
@@ -175,7 +175,7 @@ export default function FleetPage() {
                     <div className="p-6">
                       <div className="flex items-start justify-between mb-3">
                         <div>
-                          <h2 className="text-[#1A1A1A] font-bold text-xl">{boat.name}</h2>
+                          <h2 className="text-[#1A2B3C] font-bold text-xl">{boat.name}</h2>
                           <p className="text-gold text-xs tracking-widest uppercase mt-0.5">{boat.type}</p>
                         </div>
                         {boat.priceFrom ? (
@@ -240,7 +240,7 @@ export default function FleetPage() {
 
                       <Link
                         href={`/booking?boat=${encodeURIComponent(boat.bookingName)}`}
-                        className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-navy font-bold text-xs tracking-widest uppercase px-6 py-2.5 rounded-sm transition-colors duration-200 group/btn"
+                        className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-white font-bold text-xs tracking-widest uppercase px-6 py-2.5 rounded-sm transition-colors duration-200 group/btn"
                       >
                         {tr.fleet.bookBtn} {boat.name}
                         <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform" />
