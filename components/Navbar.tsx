@@ -79,7 +79,7 @@ export default function Navbar() {
             </button>
           </div>
           <MagneticButton
-            href="/booking"
+            href="https://rent-boat-salamina.captainbook.io/en/embedded/all?wid=1"
             className="bg-gold hover:bg-gold-light text-white font-bold text-xs tracking-widest uppercase px-5 py-2 rounded-sm transition-colors duration-200 inline-block"
           >
             {tr.nav.bookNow}
@@ -134,13 +134,13 @@ export default function Navbar() {
                   ΕΛ
                 </button>
               </div>
-              <Link
-                href="/booking"
+              <a
+                href="https://rent-boat-salamina.captainbook.io/en/embedded/all?wid=1"
                 onClick={() => setOpen(false)}
                 className="bg-gold text-white font-bold text-xs tracking-widest uppercase px-5 py-2 rounded-sm"
               >
                 {tr.nav.bookNow}
-              </Link>
+              </a>
             </div>
           </motion.div>
         )}

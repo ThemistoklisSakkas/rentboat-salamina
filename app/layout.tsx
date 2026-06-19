@@ -85,6 +85,15 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="el" className={`${inter.variable} ${garamond.variable}`}>
+      <head>
+        {/* CaptainBook booking widget — provides the click-to-open booking modal */}
+        <link rel="dns-prefetch" href="//rent-boat-salamina.captainbook.io" />
+        <script
+          type="text/javascript"
+          src="https://rent-boat-salamina.captainbook.io/widget.js"
+          async
+        />
+      </head>
       <body className="antialiased bg-[#F5F8FB] text-[#1A2B3C]">
         <script
           type="application/ld+json"

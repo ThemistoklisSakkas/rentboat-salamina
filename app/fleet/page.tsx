@@ -1,7 +1,6 @@
 "use client";
 import { useRef, useState } from "react";
 import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
-import Link from "next/link";
 import Image from "next/image";
 import { Users, Zap, Wind, ArrowRight, MapPin, Gauge, X, Expand } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -208,13 +207,13 @@ export default function FleetPage() {
                         ))}
                       </div>
 
-                      <Link
-                        href={`/booking?boat=${encodeURIComponent(boat.bookingName)}`}
+                      <a
+                        href="https://rent-boat-salamina.captainbook.io/en/embedded/all?wid=1"
                         className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-white font-bold text-xs tracking-widest uppercase px-6 py-2.5 rounded-sm transition-colors duration-200 group/btn"
                       >
                         {tr.fleet.bookBtn} {boat.name}
                         <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform" />
-                      </Link>
+                      </a>
                     </div>
                   </div>
                 </TiltCard>

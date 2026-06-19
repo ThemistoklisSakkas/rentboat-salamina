@@ -606,7 +606,7 @@ export default function HomePage() {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <MagneticButton
-              href="/booking"
+              href="https://rent-boat-salamina.captainbook.io/en/embedded/all?wid=1"
               className="bg-gold hover:bg-gold-light text-white font-bold text-sm tracking-widest uppercase px-8 py-3.5 rounded-sm transition-colors duration-200 inline-block"
             >
               {tr.home.bookNow}
@@ -746,7 +746,7 @@ export default function HomePage() {
           >
             {allBoats.map((boat) => (
               <Link
-                href={`/booking?boat=${encodeURIComponent(boat.booking)}`}
+                href="/fleet"
                 key={boat.name}
                 className="group flex-shrink-0 w-[340px]"
               >
@@ -806,7 +806,7 @@ export default function HomePage() {
         <div className="flex gap-5 overflow-x-auto pb-4 snap-x snap-mandatory -mx-6 px-6 scrollbar-hide">
           {allBoats.map((boat) => (
             <Link
-              href={`/booking?boat=${encodeURIComponent(boat.name)}`}
+              href="/fleet"
               key={boat.name}
               className="group flex-shrink-0 w-[280px] snap-start"
             >
@@ -946,7 +946,7 @@ export default function HomePage() {
               +30 697 805 9001
             </a>
             <MagneticButton
-              href="/booking"
+              href="https://rent-boat-salamina.captainbook.io/en/embedded/all?wid=1"
               className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-white font-bold text-sm tracking-widest uppercase px-8 py-3.5 rounded-sm transition-colors duration-200"
             >
               {tr.home.bookOnline}

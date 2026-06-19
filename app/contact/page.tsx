@@ -1,6 +1,5 @@
 "use client";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { Phone, Mail, MapPin, Clock, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -189,13 +188,13 @@ export default function ContactPage() {
                   <Phone className="w-3.5 h-3.5" />
                   {tr.contact.callNow}
                 </a>
-                <Link
-                  href="/booking"
+                <a
+                  href="https://rent-boat-salamina.captainbook.io/en/embedded/all?wid=1"
                   className="inline-flex items-center justify-center gap-2 bg-gold hover:bg-gold-light text-white font-bold text-xs tracking-widest uppercase px-4 py-2.5 rounded-sm transition-colors"
                 >
                   {tr.contact.bookOnline}
                   <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
+                </a>
               </div>
             </div>
           </motion.div>
