@@ -1,5 +1,4 @@
 "use client";
-import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
@@ -10,7 +9,6 @@ import { Anchor, Star, Clock, Users, ArrowRight, Phone, ChevronLeft, ChevronRigh
 import { useLanguage } from "@/contexts/LanguageContext";
 import MagneticButton from "@/components/MagneticButton";
 
-const ParticleOcean = dynamic(() => import("@/components/ParticleOcean"), { ssr: false });
 gsap.registerPlugin(ScrollTrigger);
 
 const STAT_VALUES   = [355, 10, 4] as const;
@@ -426,13 +424,12 @@ export default function HomePage() {
       {/* ═══════════════════════ HERO ═══════════════════════ */}
       <section
         ref={heroRef}
-        className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-[#2E86C1]"
+        className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-[#0A1628]"
       >
         <div ref={bgRef} className="absolute inset-0 origin-center overflow-hidden">
-          {/* z-0 — always-present background */}
-          <div className="absolute inset-0 z-0">
-            <ParticleOcean />
-          </div>
+          {/* z-0 — static dark-blue base. Shown before the videos load and as
+              the only fallback if a video fails (no particle ocean anywhere). */}
+          <div className="absolute inset-0 z-0 bg-[#0A1628]" />
 
           {/* ─── DESKTOP: autoplay crossfading videos ─── */}
           {heroReady && !isMobile && (
