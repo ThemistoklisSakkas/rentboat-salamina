@@ -8,7 +8,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Anchor, Star, Clock, Users, ArrowRight, Phone, ChevronLeft, ChevronRight, Ticket, Play, Loader2 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import MagneticButton from "@/components/MagneticButton";
-import SalaminaMap from "@/components/SalaminaMap";
+import dynamic from "next/dynamic";
+
+// 3D island scene needs the browser (WebGL) — load client-side only.
+const SalaminaMap3D = dynamic(() => import("@/components/SalaminaMap3D"), { ssr: false });
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -914,7 +917,7 @@ export default function HomePage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            <SalaminaMap />
+            <SalaminaMap3D />
           </motion.div>
         </div>
       </section>
