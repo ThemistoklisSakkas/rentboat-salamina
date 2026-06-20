@@ -18,6 +18,7 @@ const en = {
       contact: "Contact Us",
     },
     contactTitle: "Contact",
+    marina: "Salamina Marina",
     rights: "All rights reserved.",
   },
   home: {
@@ -242,6 +243,7 @@ const gr: typeof en = {
       contact: "Επικοινωνία",
     },
     contactTitle: "Επαφή",
+    marina: "Μαρίνα Σαλαμίνας",
     rights: "Με επιφύλαξη παντός δικαιώματος.",
   },
   home: {

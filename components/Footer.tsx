@@ -103,7 +103,7 @@ export default function Footer() {
                 </a>
               </li>
               <li className="text-[#6B6B6B] leading-relaxed pt-1">
-                Μαρίνα Σαλαμίνας, TK 18900
+                {tr.footer.marina}, TK 18900
                 <br />
                 Dionysios Solomos 5
               </li>
