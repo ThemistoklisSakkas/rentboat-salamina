@@ -33,7 +33,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-        display: ["var(--font-display)", "Georgia", "serif"],
+        display: ["var(--font-display)", "var(--font-display-greek)", "Georgia", "serif"],
       },
     },
   },

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, EB_Garamond } from "next/font/google";
+import { Inter, Cormorant_Garamond, EB_Garamond } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -15,10 +15,21 @@ const inter = Inter({
   weight: ["300", "400", "500", "600", "700"],
 });
 
-const garamond = EB_Garamond({
-  subsets: ["latin", "greek"],
+// Cormorant Garamond — elegant serif for Latin headings (no Greek subset).
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin", "latin-ext"],
   variable: "--font-display",
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
+});
+
+// EB Garamond — matching Garamond serif that DOES cover Greek, used as a
+// per-glyph fallback so Greek headings stay an elegant serif.
+const garamondGreek = EB_Garamond({
+  subsets: ["latin", "greek"],
+  variable: "--font-display-greek",
   weight: ["500", "600", "700"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -85,7 +96,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="el" className={`${inter.variable} ${garamond.variable}`}>
+    <html lang="el" className={`${inter.variable} ${cormorant.variable} ${garamondGreek.variable}`}>
       <head>
         {/* CaptainBook booking widget — provides the click-to-open booking modal */}
         <link rel="dns-prefetch" href="//rent-boat-salamina.captainbook.io" />

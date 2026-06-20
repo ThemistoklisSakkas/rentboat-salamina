@@ -15,10 +15,12 @@
     @apply font-sans;
   }
 
-  /* Luxury serif for large headings (EB Garamond, supports Greek). */
+  /* Cormorant Garamond for headings (Latin); EB Garamond falls in for Greek. */
   h1,
-  h2 {
-    font-family: var(--font-display), Georgia, serif;
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display), var(--font-display-greek), Georgia, serif;
     letter-spacing: 0.015em;
   }
 

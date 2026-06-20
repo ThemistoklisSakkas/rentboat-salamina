@@ -580,10 +580,10 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="text-5xl md:text-7xl font-bold text-white leading-tight mb-6"
+            className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-wide text-white leading-tight mb-6"
           >
             {tr.home.h1a}{" "}
-            <span className="text-gold italic">{tr.home.h1b}</span>
+            <span className="text-gold italic font-medium">{tr.home.h1b}</span>
             <br />
             {tr.home.h1c}
           </motion.h1>
@@ -672,7 +672,7 @@ export default function HomePage() {
             </p>
             <h2 className="text-3xl md:text-4xl font-bold text-[#0B2645]">
               {tr.home.whyTitle}{" "}
-              <span className="text-gold italic">{tr.home.whySalamina}</span>
+              <span className="text-gold italic font-medium">{tr.home.whySalamina}</span>
             </h2>
           </motion.div>
 
@@ -732,7 +732,7 @@ export default function HomePage() {
               </p>
               <h2 className="text-3xl md:text-4xl font-bold text-[#0B2645]">
                 {tr.home.fleetTitle}{" "}
-                <span className="text-gold italic">{tr.home.fleetHighlight}</span>
+                <span className="text-gold italic font-medium">{tr.home.fleetHighlight}</span>
               </h2>
             </div>
             <p className="text-[#6B6B6B] text-sm tracking-wide">
@@ -851,7 +851,7 @@ export default function HomePage() {
             </p>
             <h2 className="text-3xl md:text-4xl font-bold text-[#0B2645]">
               {tr.home.destTitle}{" "}
-              <span className="text-gold italic">{tr.home.destHighlight}</span>
+              <span className="text-gold italic font-medium">{tr.home.destHighlight}</span>
             </h2>
             <p className="text-[#4A4A4A] text-sm mt-4 max-w-md mx-auto">
               {tr.home.destDesc}
