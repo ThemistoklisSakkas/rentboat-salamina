@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import ClientProviders from "@/components/ClientProviders";
 import PageTransition from "@/components/PageTransition";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import PhoneButton from "@/components/PhoneButton";
 import SmoothScroll from "@/components/SmoothScroll";
 
 const inter = Inter({
@@ -105,6 +106,7 @@ export default function RootLayout({
           <PageTransition>{children}</PageTransition>
           <Footer />
           <WhatsAppButton />
+          <PhoneButton />
         </ClientProviders>
       </body>
     </html>
