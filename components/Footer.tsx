@@ -114,7 +114,6 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-[#D6EAF8] pt-6 flex flex-col md:flex-row justify-between items-center gap-2 text-[#6B6B6B] text-xs tracking-wide">
           <p>© {new Date().getFullYear()} Rent Boat Salamina. {tr.footer.rights}</p>
-          <p>Αρ. ΓΕΜΗ: 177621609000</p>
         </div>
       </div>
     </footer>

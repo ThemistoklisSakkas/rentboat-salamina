@@ -8,7 +8,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Anchor, Star, Clock, Users, ArrowRight, Phone, ChevronLeft, ChevronRight, Ticket, Play, Loader2 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import MagneticButton from "@/components/MagneticButton";
-import SalaminaMap from "@/components/SalaminaMap";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -879,43 +878,6 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════ ISLAND MAP ═══════════════════════ */}
-      <section className="bg-white py-24 px-6 lg:px-12">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="text-center mb-12"
-          >
-            <p className="text-gold text-xs tracking-[0.35em] uppercase mb-3">
-              {lang === "gr" ? "Ο Χάρτης του Νησιού" : "The Island Map"}
-            </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0B2645]">
-              {lang === "gr" ? "Εξερεύνησε τη " : "Explore "}
-              <span className="italic font-display text-gold">
-                {lang === "gr" ? "Σαλαμίνα" : "Salamina"}
-              </span>
-            </h2>
-            <p className="text-[#4A4A4A] text-sm mt-4 max-w-md mx-auto">
-              {lang === "gr"
-                ? "Πέρασε το δείκτη ή πάτησε σε κάθε σημείο για να δεις τους προορισμούς μας."
-                : "Hover or tap each point to discover our destinations."}
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.97 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <SalaminaMap />
-          </motion.div>
         </div>
       </section>
 
