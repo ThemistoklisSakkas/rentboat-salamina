@@ -219,9 +219,6 @@ export default function HomePage() {
   const counterRefs     = useRef<(HTMLSpanElement | null)[]>([]);
 
   const [vid1Ready, setVid1Ready] = useState(false);
-  const [vid2Ready, setVid2Ready] = useState(false);
-  const [activeVideo, setActiveVideo] = useState(0);
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   // Mobile "tap to play" hero state
   const [isMobile, setIsMobile] = useState(false);
@@ -337,15 +334,6 @@ export default function HomePage() {
     return () => ctx.revert();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  useEffect(() => {
-    intervalRef.current = setInterval(() => {
-      setActiveVideo(v => (v + 1) % 2);
-    }, 8000);
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
-  }, []);
-
   // Mobile detection — viewport width OR a touch-device user agent.
   useEffect(() => {
     const check = () =>
@@ -358,14 +346,6 @@ export default function HomePage() {
     window.addEventListener("resize", check);
     return () => window.removeEventListener("resize", check);
   }, []);
-
-  const handleDotClick = (i: number) => {
-    setActiveVideo(i);
-    if (intervalRef.current) clearInterval(intervalRef.current);
-    intervalRef.current = setInterval(() => {
-      setActiveVideo(v => (v + 1) % 2);
-    }, 8000);
-  };
 
   // Reveal the video — clears the safety timer so the spinner can't linger.
   const revealMobileVideo = () => {
@@ -435,11 +415,11 @@ export default function HomePage() {
           {/* ─── DESKTOP: autoplay crossfading videos ─── */}
           {heroReady && !isMobile && (
             <>
-              {/* Video 1 — local optimized boat video (web-optimized / fast-start) */}
+              {/* Single hero video — fast-start, seamless continuous loop */}
               <motion.div
                 className="absolute inset-0"
                 initial={{ opacity: 0 }}
-                animate={{ opacity: activeVideo === 0 && vid1Ready ? 1 : 0 }}
+                animate={{ opacity: vid1Ready ? 1 : 0 }}
                 transition={{ duration: 1.2, ease: "easeInOut" }}
               >
                 <video
@@ -454,28 +434,6 @@ export default function HomePage() {
                   onLoadedData={() => setVid1Ready(true)}
                 >
                   <source src="/boat-hero-1.mp4" type="video/mp4" />
-                </video>
-              </motion.div>
-
-              {/* Video 2 — local boat video */}
-              <motion.div
-                className="absolute inset-0"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: activeVideo === 1 && vid2Ready ? 1 : 0 }}
-                transition={{ duration: 1.2, ease: "easeInOut" }}
-              >
-                <video
-                  className="w-full h-full object-cover"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="metadata"
-                  poster="https://rentboatsalamina.gr/wp-content/uploads/2024/05/IMG_2991-740x482.jpg"
-                  onCanPlay={() => setVid2Ready(true)}
-                  onLoadedData={() => setVid2Ready(true)}
-                >
-                  <source src="/boat-hero-2.mp4" type="video/mp4" />
                 </video>
               </motion.div>
             </>
@@ -617,29 +575,6 @@ export default function HomePage() {
             </Link>
           </motion.div>
         </div>
-
-        {/* Video dot indicators — desktop crossfade only */}
-        {!isMobile && (
-          <motion.div
-            className="absolute bottom-16 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.8 }}
-          >
-            {[0, 1].map((i) => (
-              <button
-                key={i}
-                onClick={() => handleDotClick(i)}
-                aria-label={`Switch to video ${i + 1}`}
-                className={`h-1.5 rounded-full transition-all duration-500 ${
-                  activeVideo === i
-                    ? "w-6 bg-white"
-                    : "w-1.5 bg-white/40 hover:bg-white/60"
-                }`}
-              />
-            ))}
-          </motion.div>
-        )}
 
         {/* Scroll indicator */}
         <motion.div
