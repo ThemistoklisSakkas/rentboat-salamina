@@ -51,8 +51,8 @@ type BoatMeta = {
 
 const boatsMeta: BoatMeta[] = [
   {
-    name: "Salamina",
-    bookingName: "Salamina",
+    name: "Soul is",
+    bookingName: "Soul is",
     type: "Speed Boat",
     capacity: 5,
     avgSpeed: "20 knots",
