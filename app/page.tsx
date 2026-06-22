@@ -8,7 +8,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Anchor, Star, Clock, Users, ArrowRight, Phone, ChevronLeft, ChevronRight, Ticket, Play, Loader2 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import MagneticButton from "@/components/MagneticButton";
-import SalaminaSatelliteMap from "@/components/SalaminaSatelliteMap";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -858,22 +857,11 @@ export default function HomePage() {
             </p>
           </motion.div>
 
-          {/* Interactive satellite map with photo pins */}
-          <div className="mb-16">
-            <SalaminaSatelliteMap
-              spots={tr.home.destinations.map((name, i) => ({
-                name,
-                img: DEST_IMAGES[i % DEST_IMAGES.length],
-              }))}
-            />
-          </div>
-
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
             {tr.home.destinations.map((d, i) => (
               <div
                 key={d}
-                id={`dest-${i}`}
-                className="dest-chip group relative aspect-[3/4] rounded-xl overflow-hidden shadow-sm scroll-mt-28"
+                className="dest-chip group relative aspect-[3/4] rounded-xl overflow-hidden shadow-sm"
               >
                 <Image
                   src={DEST_IMAGES[i % DEST_IMAGES.length]}
