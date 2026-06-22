@@ -452,7 +452,7 @@ export default function HomePage() {
                   onCanPlay={() => setVid1Ready(true)}
                   onLoadedData={() => setVid1Ready(true)}
                 >
-                  <source src="/boat-hero-1.mp4" type="video/mp4" />
+                  <source src="/boat-hero-1-desktop.mp4" type="video/mp4" />
                 </video>
               </motion.div>
 
@@ -474,7 +474,7 @@ export default function HomePage() {
                   onCanPlay={() => setVid2Ready(true)}
                   onLoadedData={() => setVid2Ready(true)}
                 >
-                  <source src="/boat-hero-2.mp4" type="video/mp4" />
+                  <source src="/boat-hero-2-desktop.mp4" type="video/mp4" />
                 </video>
               </motion.div>
             </>
