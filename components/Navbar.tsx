@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import MagneticButton from "@/components/MagneticButton";
+import Logo from "@/components/Logo";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -35,9 +36,12 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex flex-col leading-none">
-          <span className="text-[#0B2645]/40 text-[9px] tracking-[0.3em] uppercase">Rent Boat</span>
-          <span className="text-gold font-bold text-sm tracking-widest uppercase">Salamina</span>
+        <Link href="/" className="flex items-center gap-2.5 leading-none">
+          <Logo className="w-7 h-7 flex-shrink-0" />
+          <span className="flex flex-col">
+            <span className="text-[#0B2645]/40 text-[9px] tracking-[0.3em] uppercase">Rent Boat</span>
+            <span className="text-gold font-bold text-sm tracking-widest uppercase">Salamina</span>
+          </span>
         </Link>
 
         {/* Desktop nav */}

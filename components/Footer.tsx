@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useLanguage } from "@/contexts/LanguageContext";
+import Logo from "@/components/Logo";
 
 function FacebookIcon({ className }: { className?: string }) {
   return (
@@ -30,6 +31,7 @@ export default function Footer() {
 
           {/* Brand */}
           <div>
+            <Logo className="w-10 h-10 mb-3" />
             <p className="text-[#0B2645]/40 text-[9px] tracking-[0.3em] uppercase mb-0.5">Rent Boat</p>
             <p className="text-gold font-bold text-base tracking-widest uppercase mb-4">Salamina</p>
             <p className="text-[#4A4A4A] text-sm leading-relaxed max-w-xs">
