@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import MagneticButton from "@/components/MagneticButton";
-import Logo from "@/components/Logo";
+import Image from "next/image";
 
 const BOOK_URL = "https://rent-boat-salamina.captainbook.io/en/embedded/all?wid=1";
 
@@ -39,18 +39,19 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12 h-16 flex items-center justify-between">
-        {/* Logo */}
-        <Link
-          href="/"
-          className={`flex items-center gap-2.5 leading-none transition-colors duration-200 ${
-            dark ? "text-white" : "text-[#0B2645]"
-          }`}
-        >
-          <Logo className="w-9 h-9 flex-shrink-0" />
-          <span className="flex flex-col">
-            <span className="font-bold text-xl tracking-[0.04em] leading-none">SALAMINA</span>
-            <span className="text-[10px] font-normal tracking-[0.3em] mt-1 leading-none">RENT BOAT</span>
-          </span>
+        {/* Logo — the real brand artwork. White on the dark navbar; darkened
+            to navy when the navbar turns white on scroll. */}
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/logo.png"
+            alt="Salamina Rent Boat"
+            width={500}
+            height={112}
+            priority
+            className={`h-10 w-auto transition-[filter] duration-200 ${
+              dark ? "" : "[filter:brightness(0)_saturate(100%)_invert(11%)_sepia(42%)_saturate(1900%)_hue-rotate(189deg)_brightness(95%)_contrast(96%)]"
+            }`}
+          />
         </Link>
 
         {/* Desktop nav */}
