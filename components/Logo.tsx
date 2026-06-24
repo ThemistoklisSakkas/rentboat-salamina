@@ -1,6 +1,8 @@
-// Brand mark — minimal line-art anchor + sailboat sail.
-// Outline only, drawn in `currentColor` so it inherits whatever text color
-// the navbar/footer sets (navy on the white navbar; white if used on dark).
+// Brand mark — sailboat + anchor emblem matching the original logo:
+// a masthead finial, a filled billowing sail, the mast/anchor shaft, the
+// stock crossbar, and the curved anchor arms with upward fluke barbs.
+// Drawn in `currentColor` so it inherits the navbar/footer text color
+// (navy on the white navbar; white if ever placed on a dark background).
 export default function Logo({ className }: { className?: string }) {
   return (
     <svg
@@ -8,22 +10,29 @@ export default function Logo({ className }: { className?: string }) {
       viewBox="0 0 48 48"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2.2}
+      strokeWidth={2}
       strokeLinecap="round"
       strokeLinejoin="round"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
     >
-      {/* sailboat sail */}
-      <path d="M24 5 C 31 9 32 16 28 20 L 24 20 Z" />
+      {/* masthead finial */}
+      <circle cx="24" cy="5.5" r="1.8" fill="currentColor" stroke="none" />
       {/* mast / anchor shaft */}
-      <path d="M24 5 V 35" />
-      {/* stock crossbar */}
-      <path d="M16 22 H 32" />
-      {/* anchor flukes */}
-      <path d="M12 28 C 12 37 18 42 24 42 C 30 42 36 37 36 28" />
-      <path d="M12 28 L 9 32 M12 28 L 16 30" />
-      <path d="M36 28 L 39 32 M36 28 L 32 30" />
+      <path d="M24 7.5 V 38" />
+      {/* sail */}
+      <path
+        d="M24 10 C 31 13 32.5 19 28.5 23.5 L 24 23.5 Z"
+        fill="currentColor"
+        stroke="none"
+      />
+      {/* anchor stock (crossbar) */}
+      <path d="M17 27 H 31" />
+      {/* anchor arms */}
+      <path d="M13 31 C 13 39 18 43 24 43 C 30 43 35 39 35 31" />
+      {/* fluke barbs */}
+      <path d="M13 31 l -3 -2 M13 31 l 1.5 -4" />
+      <path d="M35 31 l 3 -2 M35 31 l -1.5 -4" />
     </svg>
   );
 }
