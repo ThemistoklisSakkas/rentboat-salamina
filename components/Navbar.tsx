@@ -37,10 +37,10 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 text-[#0B2645] leading-none">
-          <Logo className="w-8 h-8 flex-shrink-0" />
-          <span className="flex flex-col">
-            <span className="font-bold text-lg tracking-wide leading-none">SALAMINA</span>
-            <span className="text-[9px] font-medium tracking-[0.35em] mt-1 leading-none">RENT BOAT</span>
+          <Logo className="w-9 h-9 flex-shrink-0" />
+          <span className="flex flex-col font-logo">
+            <span className="font-semibold text-xl tracking-[0.04em] leading-none">SALAMINA</span>
+            <span className="text-[10px] font-normal tracking-[0.3em] mt-1 leading-none">RENT BOAT</span>
           </span>
         </Link>
 

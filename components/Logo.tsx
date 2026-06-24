@@ -1,8 +1,7 @@
 // Brand mark — sailboat + anchor emblem matching the original logo:
-// a masthead finial, a filled billowing sail, the mast/anchor shaft, the
-// stock crossbar, and the curved anchor arms with upward fluke barbs.
-// Drawn in `currentColor` so it inherits the navbar/footer text color
-// (navy on the white navbar; white if ever placed on a dark background).
+// a masthead ball, a small pennant flag, a filled sail billowing right,
+// the mast/anchor shaft, the stock crossbar and the anchor arms with fluke
+// barbs. Drawn in `currentColor` so it inherits the navbar/footer text color.
 export default function Logo({ className }: { className?: string }) {
   return (
     <svg
@@ -16,23 +15,21 @@ export default function Logo({ className }: { className?: string }) {
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
     >
-      {/* masthead finial */}
-      <circle cx="24" cy="5.5" r="1.8" fill="currentColor" stroke="none" />
+      {/* masthead ball */}
+      <circle cx="18" cy="4" r="1.5" fill="currentColor" stroke="none" />
+      {/* pennant flag */}
+      <path d="M18 5 L 22.5 6.2 L 18 7.4 Z" fill="currentColor" stroke="none" />
       {/* mast / anchor shaft */}
-      <path d="M24 7.5 V 38" />
-      {/* sail */}
-      <path
-        d="M24 10 C 31 13 32.5 19 28.5 23.5 L 24 23.5 Z"
-        fill="currentColor"
-        stroke="none"
-      />
-      {/* anchor stock (crossbar) */}
-      <path d="M17 27 H 31" />
+      <path d="M18 6 V 43" />
+      {/* sail (filled, billowing right) */}
+      <path d="M18 9.5 C 27 12.5 29.5 20 27 26 L 18 26 Z" fill="currentColor" stroke="none" />
+      {/* anchor stock */}
+      <path d="M11 30 H 25" />
       {/* anchor arms */}
-      <path d="M13 31 C 13 39 18 43 24 43 C 30 43 35 39 35 31" />
+      <path d="M11 33 C 11 40 14.5 43.5 18 43.5 C 21.5 43.5 25 40 25 33" />
       {/* fluke barbs */}
-      <path d="M13 31 l -3 -2 M13 31 l 1.5 -4" />
-      <path d="M35 31 l 3 -2 M35 31 l -1.5 -4" />
+      <path d="M11 33 l -2.5 -2 M11 33 l 1.5 -3.5" />
+      <path d="M25 33 l 2.5 -2 M25 33 l -1.5 -3.5" />
     </svg>
   );
 }

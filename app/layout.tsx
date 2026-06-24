@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Cormorant_Garamond, EB_Garamond } from "next/font/google";
+import { Inter, Cormorant_Garamond, EB_Garamond, Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -30,6 +30,14 @@ const garamondGreek = EB_Garamond({
   variable: "--font-display-greek",
   weight: ["500", "600", "700"],
   style: ["normal", "italic"],
+});
+
+// Montserrat — clean geometric sans for the logo wordmark (matches the
+// original logo lettering). Latin only — the wordmark is "SALAMINA RENT BOAT".
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-logo",
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -96,7 +104,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="el" className={`${inter.variable} ${cormorant.variable} ${garamondGreek.variable}`}>
+    <html lang="el" className={`${inter.variable} ${cormorant.variable} ${garamondGreek.variable} ${montserrat.variable}`}>
       <head>
         {/* CaptainBook booking widget — provides the click-to-open booking modal */}
         <link rel="dns-prefetch" href="//rent-boat-salamina.captainbook.io" />
