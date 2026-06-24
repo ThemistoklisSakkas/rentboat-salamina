@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -11,16 +11,9 @@ import Image from "next/image";
 const BOOK_URL = "https://rent-boat-salamina.captainbook.io/en/embedded/all?wid=1";
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const { tr, lang, setLang } = useLanguage();
   const pathname = usePathname();
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   const links = [
     { href: "/", label: tr.nav.home },
@@ -28,19 +21,11 @@ export default function Navbar() {
     { href: "/contact", label: tr.nav.contact },
   ];
 
-  // Navbar is dark navy at the top and turns solid white on scroll, so the
-  // logo and links flip from white to navy accordingly.
-  const dark = !scrolled;
-
+  // Navbar stays dark navy with white content at all scroll positions.
   return (
-    <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-white shadow-sm border-b border-[#E5E5E0]" : "bg-[#0B2645]"
-      }`}
-    >
+    <header className="fixed top-0 inset-x-0 z-50 bg-[#0B2645] border-b border-white/10 shadow-md shadow-black/20">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 h-16 flex items-center justify-between">
-        {/* Logo — the real brand artwork. White on the dark navbar; darkened
-            to navy when the navbar turns white on scroll. */}
+        {/* Logo — the real brand artwork, white on the navy navbar */}
         <Link href="/" className="flex items-center">
           <Image
             src="/logo.png"
@@ -48,9 +33,7 @@ export default function Navbar() {
             width={500}
             height={112}
             priority
-            className={`h-10 w-auto transition-[filter] duration-200 ${
-              dark ? "" : "[filter:brightness(0)_saturate(100%)_invert(11%)_sepia(42%)_saturate(1900%)_hue-rotate(189deg)_brightness(95%)_contrast(96%)]"
-            }`}
+            className="h-10 w-auto"
           />
         </Link>
 
@@ -63,13 +46,7 @@ export default function Navbar() {
                 key={l.href}
                 href={l.href}
                 className={`text-xs tracking-widest uppercase transition-colors duration-200 ${
-                  active
-                    ? dark
-                      ? "text-white font-semibold"
-                      : "text-ocean-blue font-semibold"
-                    : dark
-                      ? "text-white/65 hover:text-white"
-                      : "text-[#0B2645]/60 hover:text-[#0B2645]"
+                  active ? "text-white font-semibold" : "text-white/65 hover:text-white"
                 }`}
               >
                 {l.label}
@@ -84,20 +61,16 @@ export default function Navbar() {
             <button
               onClick={() => setLang("en")}
               className={`transition-colors duration-200 ${
-                lang === "en"
-                  ? dark ? "text-white font-semibold" : "text-gold font-semibold"
-                  : dark ? "text-white/50 hover:text-white/80" : "text-[#0B2645]/35 hover:text-[#0B2645]/65"
+                lang === "en" ? "text-white font-semibold" : "text-white/50 hover:text-white/80"
               }`}
             >
               EN
             </button>
-            <span className={dark ? "text-white/30" : "text-[#0B2645]/20"}>|</span>
+            <span className="text-white/30">|</span>
             <button
               onClick={() => setLang("gr")}
               className={`transition-colors duration-200 ${
-                lang === "gr"
-                  ? dark ? "text-white font-semibold" : "text-gold font-semibold"
-                  : dark ? "text-white/50 hover:text-white/80" : "text-[#0B2645]/35 hover:text-[#0B2645]/65"
+                lang === "gr" ? "text-white font-semibold" : "text-white/50 hover:text-white/80"
               }`}
             >
               ΕΛ
@@ -113,7 +86,7 @@ export default function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className={`md:hidden transition-colors ${dark ? "text-white" : "text-[#0B2645]"}`}
+          className="md:hidden text-white transition-colors"
           onClick={() => setOpen(!open)}
           aria-label={open ? "Close menu" : "Open menu"}
         >
@@ -121,7 +94,7 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile menu (solid white dropdown) */}
+      {/* Mobile menu */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -129,7 +102,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden bg-white border-t border-[#E5E5E0] px-6 py-6 space-y-4 shadow-md"
+            className="md:hidden bg-[#0B2645] border-t border-white/10 px-6 py-6 space-y-4 shadow-md"
           >
             {links.map((l) => (
               <Link
@@ -137,24 +110,24 @@ export default function Navbar() {
                 href={l.href}
                 onClick={() => setOpen(false)}
                 className={`block text-sm tracking-widest uppercase py-1 transition-colors ${
-                  pathname === l.href ? "text-ocean-blue font-semibold" : "text-[#0B2645]/70 hover:text-[#0B2645]"
+                  pathname === l.href ? "text-white font-semibold" : "text-white/70 hover:text-white"
                 }`}
               >
                 {l.label}
               </Link>
             ))}
-            <div className="pt-3 border-t border-[#E5E5E0] flex items-center justify-between">
+            <div className="pt-3 border-t border-white/10 flex items-center justify-between">
               <div className="flex items-center gap-2 text-xs tracking-widest">
                 <button
                   onClick={() => setLang("en")}
-                  className={lang === "en" ? "text-gold font-semibold" : "text-[#0B2645]/35"}
+                  className={lang === "en" ? "text-white font-semibold" : "text-white/50"}
                 >
                   EN
                 </button>
-                <span className="text-[#0B2645]/20">|</span>
+                <span className="text-white/30">|</span>
                 <button
                   onClick={() => setLang("gr")}
-                  className={lang === "gr" ? "text-gold font-semibold" : "text-[#0B2645]/35"}
+                  className={lang === "gr" ? "text-white font-semibold" : "text-white/50"}
                 >
                   ΕΛ
                 </button>
