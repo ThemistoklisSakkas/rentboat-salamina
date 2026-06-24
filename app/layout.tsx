@@ -7,6 +7,7 @@ import ClientProviders from "@/components/ClientProviders";
 import PageTransition from "@/components/PageTransition";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PhoneButton from "@/components/PhoneButton";
+import LanguageButton from "@/components/LanguageButton";
 import SmoothScroll from "@/components/SmoothScroll";
 
 const inter = Inter({
@@ -118,6 +119,7 @@ export default function RootLayout({
           <Footer />
           <WhatsAppButton />
           <PhoneButton />
+          <LanguageButton />
         </ClientProviders>
       </body>
     </html>
