@@ -129,7 +129,7 @@ export default function ContactPage() {
           >
             <div className="rounded-xl overflow-hidden h-[380px] border border-[#D6EAF8] shadow-sm">
               <iframe
-                src="https://maps.google.com/maps?q=Marina+Salaminas+Salamina+Greece&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                src="https://maps.google.com/maps?q=37.9663738,23.4906492&t=&z=16&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="100%"
                 loading="lazy"
