@@ -8,6 +8,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import MagneticButton from "@/components/MagneticButton";
 import Logo from "@/components/Logo";
 
+const BOOK_URL = "https://rent-boat-salamina.captainbook.io/en/embedded/all?wid=1";
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -26,39 +28,53 @@ export default function Navbar() {
     { href: "/contact", label: tr.nav.contact },
   ];
 
+  // Navbar is dark navy at the top and turns solid white on scroll, so the
+  // logo and links flip from white to navy accordingly.
+  const dark = !scrolled;
+
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white shadow-sm border-b border-[#E5E5E0]"
-          : "bg-white/90 backdrop-blur-sm"
+        scrolled ? "bg-white shadow-sm border-b border-[#E5E5E0]" : "bg-[#0B2645]"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5 text-[#0B2645] leading-none">
+        <Link
+          href="/"
+          className={`flex items-center gap-2.5 leading-none transition-colors duration-200 ${
+            dark ? "text-white" : "text-[#0B2645]"
+          }`}
+        >
           <Logo className="w-9 h-9 flex-shrink-0" />
-          <span className="flex flex-col font-logo">
-            <span className="font-semibold text-xl tracking-[0.04em] leading-none">SALAMINA</span>
+          <span className="flex flex-col">
+            <span className="font-bold text-xl tracking-[0.04em] leading-none">SALAMINA</span>
             <span className="text-[10px] font-normal tracking-[0.3em] mt-1 leading-none">RENT BOAT</span>
           </span>
         </Link>
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
-          {links.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className={`text-xs tracking-widest uppercase transition-colors duration-200 ${
-                pathname === l.href
-                  ? "text-ocean-blue font-semibold"
-                  : "text-[#0B2645]/60 hover:text-[#0B2645]"
-              }`}
-            >
-              {l.label}
-            </Link>
-          ))}
+          {links.map((l) => {
+            const active = pathname === l.href;
+            return (
+              <Link
+                key={l.href}
+                href={l.href}
+                className={`text-xs tracking-widest uppercase transition-colors duration-200 ${
+                  active
+                    ? dark
+                      ? "text-white font-semibold"
+                      : "text-ocean-blue font-semibold"
+                    : dark
+                      ? "text-white/65 hover:text-white"
+                      : "text-[#0B2645]/60 hover:text-[#0B2645]"
+                }`}
+              >
+                {l.label}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Right: lang switcher + CTA */}
@@ -67,23 +83,27 @@ export default function Navbar() {
             <button
               onClick={() => setLang("en")}
               className={`transition-colors duration-200 ${
-                lang === "en" ? "text-gold font-semibold" : "text-[#0B2645]/35 hover:text-[#0B2645]/65"
+                lang === "en"
+                  ? dark ? "text-white font-semibold" : "text-gold font-semibold"
+                  : dark ? "text-white/50 hover:text-white/80" : "text-[#0B2645]/35 hover:text-[#0B2645]/65"
               }`}
             >
               EN
             </button>
-            <span className="text-[#0B2645]/20">|</span>
+            <span className={dark ? "text-white/30" : "text-[#0B2645]/20"}>|</span>
             <button
               onClick={() => setLang("gr")}
               className={`transition-colors duration-200 ${
-                lang === "gr" ? "text-gold font-semibold" : "text-[#0B2645]/35 hover:text-[#0B2645]/65"
+                lang === "gr"
+                  ? dark ? "text-white font-semibold" : "text-gold font-semibold"
+                  : dark ? "text-white/50 hover:text-white/80" : "text-[#0B2645]/35 hover:text-[#0B2645]/65"
               }`}
             >
               ΕΛ
             </button>
           </div>
           <MagneticButton
-            href="https://rent-boat-salamina.captainbook.io/en/embedded/all?wid=1"
+            href={BOOK_URL}
             className="bg-gold hover:bg-gold-light text-white font-bold text-xs tracking-widest uppercase px-5 py-2 rounded-sm transition-colors duration-200 inline-block"
           >
             {tr.nav.bookNow}
@@ -92,7 +112,7 @@ export default function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden text-[#0B2645]/70 hover:text-[#0B2645] transition-colors"
+          className={`md:hidden transition-colors ${dark ? "text-white" : "text-[#0B2645]"}`}
           onClick={() => setOpen(!open)}
           aria-label={open ? "Close menu" : "Open menu"}
         >
@@ -100,7 +120,7 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu (solid white dropdown) */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -139,7 +159,7 @@ export default function Navbar() {
                 </button>
               </div>
               <a
-                href="https://rent-boat-salamina.captainbook.io/en/embedded/all?wid=1"
+                href={BOOK_URL}
                 onClick={() => setOpen(false)}
                 className="bg-gold text-white font-bold text-xs tracking-widest uppercase px-5 py-2 rounded-sm"
               >
