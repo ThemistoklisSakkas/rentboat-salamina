@@ -15,17 +15,17 @@ const STAT_VALUES   = [355, 10, 4] as const;
 const STAT_SUFFIXES = ["", "", ""] as const;
 
 const allBoats = [
-  { name: "Soul is",      booking: "Soul is",                             type: "Speed Boat",     cap: 5,  img: "/boats/soul-is.jpg" },
-  { name: "Anna",         booking: "Anna",                                type: "Speed Boat",     cap: 5,  img: "/boats/anna.jpg" },
-  { name: "Quality",      booking: "Quality",                             type: "Speed Boat",     cap: 5,  img: "/boats/quality.jpg" },
-  { name: "Andromeda",    booking: "Andromeda – Technohull Alpha 40",     type: "Luxury RIB",     cap: 10, img: "/boats/andromeda.jpg" },
+  { name: "Soul is",      booking: "Soul is",                             type: "Speed Boat",     cap: 5,  img: "/boats/soul-is.webp" },
+  { name: "Anna",         booking: "Anna",                                type: "Speed Boat",     cap: 5,  img: "/boats/anna.webp" },
+  { name: "Quality",      booking: "Quality",                             type: "Speed Boat",     cap: 5,  img: "/boats/quality.webp" },
+  { name: "Andromeda",    booking: "Andromeda – Technohull Alpha 40",     type: "Luxury RIB",     cap: 10, img: "/boats/andromeda.webp" },
 ];
 
 const featureIcons = [Anchor, Star, Users, Clock];
 
 // Hero poster shown on mobile before the visitor taps to play.
 const HERO_POSTER =
-  "/boats/andromeda.jpg";
+  "/boats/andromeda.webp";
 
 // Real destination photos from rentboatsalamina.gr.
 // Order MUST match tr.home.destinations in lib/translations.ts:
@@ -472,7 +472,7 @@ export default function HomePage() {
                   loop
                   playsInline
                   preload="metadata"
-                  poster="/boats/soul-is.jpg"
+                  poster="/boats/soul-is.webp"
                   onCanPlay={() => setVid2Ready(true)}
                   onLoadedData={() => setVid2Ready(true)}
                 >

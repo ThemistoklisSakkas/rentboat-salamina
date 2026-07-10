@@ -57,7 +57,7 @@ const boatsMeta: BoatMeta[] = [
     capacity: 5,
     avgSpeed: "20 knots",
     location: "Salamina Marina",
-    image: "/boats/soul-is.jpg",
+    image: "/boats/soul-is.webp",
   },
   {
     name: "Anna",
@@ -66,7 +66,7 @@ const boatsMeta: BoatMeta[] = [
     capacity: 5,
     avgSpeed: "20 knots",
     location: "Salamina Marina",
-    image: "/boats/anna.jpg",
+    image: "/boats/anna.webp",
   },
   {
     name: "Quality",
@@ -75,7 +75,7 @@ const boatsMeta: BoatMeta[] = [
     capacity: 5,
     avgSpeed: "20 knots",
     location: "Salamina Marina",
-    image: "/boats/quality.jpg",
+    image: "/boats/quality.webp",
   },
   {
     name: "Andromeda",
@@ -88,7 +88,7 @@ const boatsMeta: BoatMeta[] = [
     engine: "2 x 400hp",
     location: "Salamina Marina",
     badge: "Premium",
-    image: "/boats/andromeda.jpg",
+    image: "/boats/andromeda.webp",
   },
 ];
 
