@@ -57,7 +57,7 @@ const boatsMeta: BoatMeta[] = [
     capacity: 5,
     avgSpeed: "20 knots",
     location: "Salamina Marina",
-    image: "https://rentboatsalamina.gr/wp-content/uploads/2024/05/IMG_2991-740x482.jpg",
+    image: "/boats/soul-is.jpg",
   },
   {
     name: "Anna",
@@ -66,7 +66,7 @@ const boatsMeta: BoatMeta[] = [
     capacity: 5,
     avgSpeed: "20 knots",
     location: "Salamina Marina",
-    image: "https://rentboatsalamina.gr/wp-content/uploads/2024/05/IMG_2990-740x482.jpg",
+    image: "/boats/anna.jpg",
   },
   {
     name: "Quality",
@@ -75,7 +75,7 @@ const boatsMeta: BoatMeta[] = [
     capacity: 5,
     avgSpeed: "20 knots",
     location: "Salamina Marina",
-    image: "https://rentboatsalamina.gr/wp-content/uploads/2018/06/%CE%B5%CE%B9%CE%BA%CF%8C%CE%BD%CE%B1_Viber_2024-07-11_17-55-43-077-scaled-e1720718416291-740x482.jpg",
+    image: "/boats/quality.jpg",
   },
   {
     name: "Andromeda",
@@ -88,7 +88,7 @@ const boatsMeta: BoatMeta[] = [
     engine: "2 x 400hp",
     location: "Salamina Marina",
     badge: "Premium",
-    image: "https://rentboatsalamina.gr/wp-content/uploads/2025/07/DSC_3560-740x482.jpg",
+    image: "/boats/andromeda.jpg",
   },
 ];
 

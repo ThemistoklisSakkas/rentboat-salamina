@@ -15,17 +15,17 @@ const STAT_VALUES   = [355, 10, 4] as const;
 const STAT_SUFFIXES = ["", "", ""] as const;
 
 const allBoats = [
-  { name: "Soul is",      booking: "Soul is",                             type: "Speed Boat",     cap: 5,  img: "https://rentboatsalamina.gr/wp-content/uploads/2024/05/IMG_2991-740x482.jpg" },
-  { name: "Anna",         booking: "Anna",                                type: "Speed Boat",     cap: 5,  img: "https://rentboatsalamina.gr/wp-content/uploads/2024/05/IMG_2990-740x482.jpg" },
-  { name: "Quality",      booking: "Quality",                             type: "Speed Boat",     cap: 5,  img: "https://rentboatsalamina.gr/wp-content/uploads/2018/06/%CE%B5%CE%B9%CE%BA%CF%8C%CE%BD%CE%B1_Viber_2024-07-11_17-55-43-077-scaled-e1720718416291-740x482.jpg" },
-  { name: "Andromeda",    booking: "Andromeda – Technohull Alpha 40",     type: "Luxury RIB",     cap: 10, img: "https://rentboatsalamina.gr/wp-content/uploads/2025/07/DSC_3560-740x482.jpg" },
+  { name: "Soul is",      booking: "Soul is",                             type: "Speed Boat",     cap: 5,  img: "/boats/soul-is.jpg" },
+  { name: "Anna",         booking: "Anna",                                type: "Speed Boat",     cap: 5,  img: "/boats/anna.jpg" },
+  { name: "Quality",      booking: "Quality",                             type: "Speed Boat",     cap: 5,  img: "/boats/quality.jpg" },
+  { name: "Andromeda",    booking: "Andromeda – Technohull Alpha 40",     type: "Luxury RIB",     cap: 10, img: "/boats/andromeda.jpg" },
 ];
 
 const featureIcons = [Anchor, Star, Users, Clock];
 
 // Hero poster shown on mobile before the visitor taps to play.
 const HERO_POSTER =
-  "https://rentboatsalamina.gr/wp-content/uploads/2025/07/DSC_3560-740x482.jpg";
+  "/boats/andromeda.jpg";
 
 // Real destination photos from rentboatsalamina.gr.
 // Order MUST match tr.home.destinations in lib/translations.ts:
@@ -33,20 +33,22 @@ const HERO_POSTER =
 // Ancient Salamina, Salamis Monument, Iliaxti, Columns Patitiri,
 // Kohi Beach, Museum, Karaiskakis Tomb, Sikelianos House.
 const DEST_IMAGES = [
-  "https://rentboatsalamina.gr/wp-content/uploads/2017/04/kanakia.png",
-  "https://rentboatsalamina.gr/wp-content/uploads/2024/06/aias-banner.jpg",
-  "https://rentboatsalamina.gr/wp-content/uploads/2024/06/lamprano-banner.png",
-  "https://rentboatsalamina.gr/wp-content/uploads/2024/04/paralies.png",
-  "https://rentboatsalamina.gr/wp-content/uploads/2017/04/spileo.png",
-  "https://rentboatsalamina.gr/wp-content/uploads/2017/04/faros.png",
-  "https://rentboatsalamina.gr/wp-content/uploads/2017/04/salamina2.png",
-  "https://rentboatsalamina.gr/wp-content/uploads/2017/04/salamina.png",
-  "https://rentboatsalamina.gr/wp-content/uploads/2024/06/iliaxti3.png",
-  "https://rentboatsalamina.gr/wp-content/uploads/2024/06/patitiri.png",
-  "https://rentboatsalamina.gr/wp-content/uploads/2024/06/beach.png",
-  "https://rentboatsalamina.gr/wp-content/uploads/2017/04/mouseio.png",
-  "https://rentboatsalamina.gr/wp-content/uploads/2017/04/karaiskakis.png",
-  "https://rentboatsalamina.gr/wp-content/uploads/2017/04/sikelianos.png",
+  // TEMPORARY Unsplash placeholders (Greek island / beach / coast).
+  // Swap for real Salamina destination photos when available.
+  "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=600&h=800&fit=crop&auto=format", // Kanakia
+  "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=800&fit=crop&auto=format", // Aias Beach
+  "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=600&h=800&fit=crop&auto=format", // Lamprano
+  "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?w=600&h=800&fit=crop&auto=format", // Secret Beaches
+  "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=600&h=800&fit=crop&auto=format", // Euripides' Cave
+  "https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=600&h=800&fit=crop&auto=format", // Konchi Lighthouse
+  "https://images.unsplash.com/photo-1512100356356-de1b84283e18?w=600&h=800&fit=crop&auto=format", // Ancient Salamina
+  "https://images.unsplash.com/photo-1571406252241-db0280bd36cd?w=600&h=800&fit=crop&auto=format", // Salamis Monument
+  "https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a?w=600&h=800&fit=crop&auto=format", // Iliaxti
+  "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?w=600&h=800&fit=crop&auto=format", // Columns Patitiri
+  "https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=600&h=800&fit=crop&auto=format", // Kohi Beach
+  "https://images.unsplash.com/photo-1504198266287-1659872e6590?w=600&h=800&fit=crop&auto=format", // Archaeological Museum
+  "https://images.unsplash.com/photo-1512757776214-26d36777b513?w=600&h=800&fit=crop&auto=format", // Karaiskakis Tomb
+  "https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?w=600&h=800&fit=crop&auto=format", // Sikelianos House
 ];
 
 // ─── TESTIMONIAL CAROUSEL ────────────────────────────────────────────────────
@@ -470,7 +472,7 @@ export default function HomePage() {
                   loop
                   playsInline
                   preload="metadata"
-                  poster="https://rentboatsalamina.gr/wp-content/uploads/2024/05/IMG_2991-740x482.jpg"
+                  poster="/boats/soul-is.jpg"
                   onCanPlay={() => setVid2Ready(true)}
                   onLoadedData={() => setVid2Ready(true)}
                 >

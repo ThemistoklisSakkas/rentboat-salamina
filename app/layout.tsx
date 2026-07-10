@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     siteName: "Rent Boat Salamina",
     images: [
       {
-        url: "https://rentboatsalamina.gr/wp-content/uploads/2025/07/DSC_3560-740x482.jpg",
+        url: "https://www.rentboatsalamina.gr/boats/andromeda.jpg",
         width: 740,
         height: 482,
         alt: "Andromeda — Technohull Alpha 40, Rent Boat Salamina",
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     description:
       "Boat rental without license in Salamina, Greece. Explore. Discover. Live.",
     images: [
-      "https://rentboatsalamina.gr/wp-content/uploads/2025/07/DSC_3560-740x482.jpg",
+      "https://www.rentboatsalamina.gr/boats/andromeda.jpg",
     ],
   },
 };
@@ -80,7 +80,7 @@ const localBusinessJsonLd = {
   name: "Rent Boat Salamina",
   url: "https://rentboatsalamina.gr",
   image:
-    "https://rentboatsalamina.gr/wp-content/uploads/2025/07/DSC_3560-740x482.jpg",
+    "https://www.rentboatsalamina.gr/boats/andromeda.jpg",
   telephone: "+30 697 805 9001",
   email: "info@rentboatsalamina.gr",
   priceRange: "€€",
