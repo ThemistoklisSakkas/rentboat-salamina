@@ -32,23 +32,23 @@ const HERO_POSTER =
 // Kanakia, Aias, Lamprano, Secret Beaches, Euripides' Cave, Lighthouse,
 // Ancient Salamina, Salamis Monument, Iliaxti, Columns Patitiri,
 // Kohi Beach, Museum, Karaiskakis Tomb, Sikelianos House.
+// Real local Salamina photos where provided; Unsplash placeholders for the
+// destinations still awaiting a real photo.
 const DEST_IMAGES = [
-  // TEMPORARY Unsplash placeholders (Greek island / beach / coast).
-  // Swap for real Salamina destination photos when available.
-  "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=600&h=800&fit=crop&auto=format", // Kanakia
-  "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=800&fit=crop&auto=format", // Aias Beach
-  "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=600&h=800&fit=crop&auto=format", // Lamprano
-  "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?w=600&h=800&fit=crop&auto=format", // Secret Beaches
-  "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=600&h=800&fit=crop&auto=format", // Euripides' Cave
-  "https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=600&h=800&fit=crop&auto=format", // Konchi Lighthouse
-  "https://images.unsplash.com/photo-1512100356356-de1b84283e18?w=600&h=800&fit=crop&auto=format", // Ancient Salamina
-  "https://images.unsplash.com/photo-1571406252241-db0280bd36cd?w=600&h=800&fit=crop&auto=format", // Salamis Monument
-  "https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a?w=600&h=800&fit=crop&auto=format", // Iliaxti
-  "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?w=600&h=800&fit=crop&auto=format", // Columns Patitiri
-  "https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=600&h=800&fit=crop&auto=format", // Kohi Beach
-  "https://images.unsplash.com/photo-1504198266287-1659872e6590?w=600&h=800&fit=crop&auto=format", // Archaeological Museum
-  "https://images.unsplash.com/photo-1512757776214-26d36777b513?w=600&h=800&fit=crop&auto=format", // Karaiskakis Tomb
-  "https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?w=600&h=800&fit=crop&auto=format", // Sikelianos House
+  "/destinations/kanakia.webp",                                                                     // Kanakia (real)
+  "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=800&fit=crop&auto=format",  // Aias Beach (placeholder)
+  "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=600&h=800&fit=crop&auto=format",  // Lamprano (placeholder)
+  "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?w=600&h=800&fit=crop&auto=format",  // Secret Beaches (placeholder)
+  "/destinations/euripides-cave.jpg",                                                               // Euripides' Cave (real)
+  "/destinations/konchi-lighthouse.jpg",                                                            // Konchi Lighthouse (real)
+  "https://images.unsplash.com/photo-1512100356356-de1b84283e18?w=600&h=800&fit=crop&auto=format",  // Ancient Salamina (placeholder)
+  "https://images.unsplash.com/photo-1571406252241-db0280bd36cd?w=600&h=800&fit=crop&auto=format",  // Salamis Monument (placeholder)
+  "/destinations/iliaxti.jpg",                                                                      // Iliaxti (real)
+  "/destinations/columns-patitiri.jpg",                                                             // Columns Patitiri (real)
+  "https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=600&h=800&fit=crop&auto=format",  // Kohi Beach (placeholder)
+  "https://images.unsplash.com/photo-1504198266287-1659872e6590?w=600&h=800&fit=crop&auto=format",  // Archaeological Museum (placeholder)
+  "/destinations/karaiskakis-tomb.webp",                                                            // Karaiskakis Tomb (real)
+  "/destinations/sikelianos-house.jpg",                                                             // Sikelianos House (real)
 ];
 
 // ─── TESTIMONIAL CAROUSEL ────────────────────────────────────────────────────
