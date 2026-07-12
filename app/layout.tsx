@@ -86,7 +86,7 @@ const localBusinessJsonLd = {
   priceRange: "€€",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Dionysios Solomos 5, Salamina Marina",
+    streetAddress: "Akti Karaiskaki 36",
     addressLocality: "Salamina",
     postalCode: "18900",
     addressCountry: "GR",

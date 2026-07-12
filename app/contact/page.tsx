@@ -89,9 +89,7 @@ export default function ContactPage() {
             </div>
             <p className="text-[#6B6B6B] text-xs tracking-widest uppercase mb-3">{tr.contact.locationTitle}</p>
             <p className="text-[#4A4A4A] text-sm leading-relaxed">
-              Μαρίνα Σαλαμίνας, TK 18900
-              <br />
-              Dionysios Solomos 5
+              {tr.contact.address}
             </p>
             <p className="text-[#6B6B6B] text-xs mt-2">{tr.contact.meetingPoint}</p>
             <a
@@ -129,7 +127,7 @@ export default function ContactPage() {
           >
             <div className="rounded-xl overflow-hidden h-[380px] border border-[#D6EAF8] shadow-sm">
               <iframe
-                src="https://maps.google.com/maps?q=Leoforos+Karaiskaki+30,+Salamina+18900,+Greece&t=&z=16&hl=el&ie=UTF8&iwloc=B&output=embed"
+                src="https://maps.google.com/maps?q=Akti+Karaiskaki+36,+Salamina,+Greece&t=&z=16&hl=el&ie=UTF8&iwloc=B&output=embed"
                 width="100%"
                 height="100%"
                 loading="lazy"
