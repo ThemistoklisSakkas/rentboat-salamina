@@ -37,17 +37,17 @@ const HERO_POSTER =
 const DEST_IMAGES = [
   "/destinations/kanakia.webp",                                                                     // Kanakia (real)
   "/destinations/aias-beach.jpg",                                                                   // Aias Beach (real)
-  "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=600&h=800&fit=crop&auto=format",  // Lamprano (placeholder)
+  "/destinations/lamprano.jpg",                                                                     // Lamprano (real)
   "/destinations/secret-beaches.jpg",                                                               // Secret Beaches (real)
   "/destinations/euripides-cave.jpg",                                                               // Euripides' Cave (real)
   "/destinations/konchi-lighthouse.jpg",                                                            // Konchi Lighthouse (real)
-  "https://images.unsplash.com/photo-1512100356356-de1b84283e18?w=600&h=800&fit=crop&auto=format",  // Ancient Salamina (placeholder)
+  "/destinations/ancient-salamina.jpg",                                                             // Ancient Salamina (real)
   "/destinations/salamis-monument.webp",                                                            // Salamis Monument (real)
   "/destinations/iliaxti.jpg",                                                                      // Iliaxti (real)
   "/destinations/columns-patitiri.jpg",                                                             // Columns Patitiri (real)
   "/destinations/kohi-beach.jpg",                                                                   // Kohi Beach (real)
   "/destinations/archaeological-museum.jpg",                                                        // Archaeological Museum (real)
-  "/destinations/karaiskakis-tomb.webp",                                                            // Karaiskakis Tomb (real)
+  "/destinations/karaiskakis-tomb.jpg",                                                             // Karaiskakis Tomb (real)
   "/destinations/sikelianos-house.jpg",                                                             // Sikelianos House (real)
 ];
 
