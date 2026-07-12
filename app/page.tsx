@@ -36,17 +36,17 @@ const HERO_POSTER =
 // destinations still awaiting a real photo.
 const DEST_IMAGES = [
   "/destinations/kanakia.webp",                                                                     // Kanakia (real)
-  "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=800&fit=crop&auto=format",  // Aias Beach (placeholder)
+  "/destinations/aias-beach.jpg",                                                                   // Aias Beach (real)
   "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=600&h=800&fit=crop&auto=format",  // Lamprano (placeholder)
-  "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?w=600&h=800&fit=crop&auto=format",  // Secret Beaches (placeholder)
+  "/destinations/secret-beaches.jpg",                                                               // Secret Beaches (real)
   "/destinations/euripides-cave.jpg",                                                               // Euripides' Cave (real)
   "/destinations/konchi-lighthouse.jpg",                                                            // Konchi Lighthouse (real)
   "https://images.unsplash.com/photo-1512100356356-de1b84283e18?w=600&h=800&fit=crop&auto=format",  // Ancient Salamina (placeholder)
-  "https://images.unsplash.com/photo-1571406252241-db0280bd36cd?w=600&h=800&fit=crop&auto=format",  // Salamis Monument (placeholder)
+  "/destinations/salamis-monument.webp",                                                            // Salamis Monument (real)
   "/destinations/iliaxti.jpg",                                                                      // Iliaxti (real)
   "/destinations/columns-patitiri.jpg",                                                             // Columns Patitiri (real)
-  "https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=600&h=800&fit=crop&auto=format",  // Kohi Beach (placeholder)
-  "https://images.unsplash.com/photo-1504198266287-1659872e6590?w=600&h=800&fit=crop&auto=format",  // Archaeological Museum (placeholder)
+  "/destinations/kohi-beach.jpg",                                                                   // Kohi Beach (real)
+  "/destinations/archaeological-museum.jpg",                                                        // Archaeological Museum (real)
   "/destinations/karaiskakis-tomb.webp",                                                            // Karaiskakis Tomb (real)
   "/destinations/sikelianos-house.jpg",                                                             // Sikelianos House (real)
 ];
