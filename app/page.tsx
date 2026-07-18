@@ -27,6 +27,15 @@ const featureIcons = [Anchor, Star, Users, Clock];
 const HERO_POSTER =
   "/boats/andromeda.webp";
 
+// Hero video 1 has burned-in text/letters that appear after ~20s and clash
+// with our own headline overlay. Loop only the clean opening by rewinding just
+// before that point (rewind a touch early since timeupdate only fires ~4x/sec).
+const HERO1_LOOP_SECONDS = 19.5;
+const capHeroVideo1 = (e: React.SyntheticEvent<HTMLVideoElement>) => {
+  const v = e.currentTarget;
+  if (v.currentTime >= HERO1_LOOP_SECONDS) v.currentTime = 0;
+};
+
 // Real destination photos from rentboatsalamina.gr.
 // Order MUST match tr.home.destinations in lib/translations.ts:
 // Kanakia, Aias, Lamprano, Secret Beaches, Euripides' Cave, Lighthouse,
@@ -453,6 +462,7 @@ export default function HomePage() {
                   poster={HERO_POSTER}
                   onCanPlay={() => setVid1Ready(true)}
                   onLoadedData={() => setVid1Ready(true)}
+                  onTimeUpdate={capHeroVideo1}
                 >
                   <source src="/boat-hero-1-desktop.mp4" type="video/mp4" />
                 </video>
@@ -528,6 +538,7 @@ export default function HomePage() {
                 }}
                 onStalled={() => { if (mobileTapped) retryMobileVideo(); }}
                 onError={() => { if (mobileTapped) retryMobileVideo(); }}
+                onTimeUpdate={capHeroVideo1}
                 {...({ "webkit-playsinline": "true" } as Record<string, string>)}
               >
                 {/* Same hero footage as desktop. */}
